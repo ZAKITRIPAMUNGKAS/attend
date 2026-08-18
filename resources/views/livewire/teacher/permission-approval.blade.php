@@ -11,22 +11,47 @@
         </div>
     @endif
 
-    <!-- Header & Filter Tabs -->
-    <div class="flex items-center justify-between">
-        <div>
-            <h2 class="text-sm font-black text-slate-850">Persetujuan Izin & Sakit Murid</h2>
-            <p class="text-[11px] text-slate-400">Verifikasi surat izin dan dokter</p>
+    <!-- Top Hero Card with Clean Filters -->
+    <div class="soft-card p-5 space-y-4 bg-white">
+        <div class="flex items-center justify-between">
+            <div>
+                <span class="text-[10px] font-extrabold uppercase tracking-wider text-sky-600 bg-sky-50 px-2.5 py-0.5 rounded-full border border-sky-100">
+                    Verifikasi Kehadiran
+                </span>
+                <h2 class="text-base font-black text-slate-850 tracking-tight mt-1">Persetujuan Izin & Sakit</h2>
+                <p class="text-[11px] text-slate-400">Verifikasi surat izin & dokter murid rombel Anda</p>
+            </div>
+            
+            <div class="w-10 h-10 rounded-2xl bg-sky-50 text-[#1E88E5] flex items-center justify-center border border-sky-100 shrink-0">
+                <i data-lucide="clipboard-check" class="w-5 h-5"></i>
+            </div>
         </div>
 
-        <div class="flex bg-[#F4F8FC] p-1 rounded-2xl border border-sky-100 text-xs">
+        <!-- 4 Filter Tabs -->
+        <div class="grid grid-cols-4 gap-1.5 p-1 bg-[#F4F8FC] rounded-2xl border border-sky-100 text-xs">
             <button type="button" 
                     wire:click="$set('filterStatus', 'menunggu')"
-                    class="px-3 py-1 rounded-xl font-bold transition cursor-pointer {{ $filterStatus === 'menunggu' ? 'bg-[#1E88E5] text-white shadow-xs' : 'text-slate-500' }}">
-                Menunggu
+                    class="py-2 px-1 rounded-xl text-[11px] font-bold transition flex items-center justify-center gap-1 cursor-pointer {{ $filterStatus === 'menunggu' ? 'bg-[#1E88E5] text-white shadow-xs' : 'text-slate-500 hover:text-slate-800' }}">
+                <span>Menunggu</span>
+                @if($pendingCount > 0)
+                    <span class="px-1.5 py-0.2 rounded-full text-[9px] font-black {{ $filterStatus === 'menunggu' ? 'bg-white text-[#1E88E5]' : 'bg-rose-500 text-white' }}">
+                        {{ $pendingCount }}
+                    </span>
+                @endif
+            </button>
+            <button type="button" 
+                    wire:click="$set('filterStatus', 'disetujui')"
+                    class="py-2 px-1 rounded-xl text-[11px] font-bold transition flex items-center justify-center cursor-pointer {{ $filterStatus === 'disetujui' ? 'bg-[#1E88E5] text-white shadow-xs' : 'text-slate-500 hover:text-slate-800' }}">
+                Disetujui
+            </button>
+            <button type="button" 
+                    wire:click="$set('filterStatus', 'ditolak')"
+                    class="py-2 px-1 rounded-xl text-[11px] font-bold transition flex items-center justify-center cursor-pointer {{ $filterStatus === 'ditolak' ? 'bg-[#1E88E5] text-white shadow-xs' : 'text-slate-500 hover:text-slate-800' }}">
+                Ditolak
             </button>
             <button type="button" 
                     wire:click="$set('filterStatus', 'all')"
-                    class="px-3 py-1 rounded-xl font-bold transition cursor-pointer {{ $filterStatus === 'all' ? 'bg-[#1E88E5] text-white shadow-xs' : 'text-slate-500' }}">
+                    class="py-2 px-1 rounded-xl text-[11px] font-bold transition flex items-center justify-center cursor-pointer {{ $filterStatus === 'all' ? 'bg-[#1E88E5] text-white shadow-xs' : 'text-slate-500 hover:text-slate-800' }}">
                 Semua
             </button>
         </div>
@@ -35,7 +60,7 @@
     <!-- Permission Requests List -->
     <div class="space-y-3.5">
         @forelse($requests as $idx => $req)
-            <div class="soft-card p-5 space-y-3">
+            <div class="soft-card p-5 space-y-3 bg-white">
                 <div class="flex items-start justify-between">
                     <div class="flex items-center gap-3">
                         <div class="w-10 h-10 rounded-2xl bg-sky-50 text-[#1E88E5] font-black text-xs flex items-center justify-center border border-sky-100 shrink-0">
@@ -49,7 +74,7 @@
                         </div>
                     </div>
 
-                    <span class="text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full {{ $req->type === 'sakit' ? 'bg-purple-100 text-purple-800' : 'bg-sky-100 text-sky-800' }}">
+                    <span class="text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full {{ $req->type === 'sakit' ? 'bg-purple-100 text-purple-800 border border-purple-200' : 'bg-sky-100 text-sky-800 border border-sky-200' }}">
                         {{ $req->type }}
                     </span>
                 </div>
@@ -67,7 +92,7 @@
                 <!-- Attachment Link if available -->
                 @if($req->attachment)
                     <div class="pt-1">
-                        <a href="{{ Storage::url($req->attachment) }}" target="_blank" class="inline-flex items-center gap-1.5 text-xs text-[#1E88E5] font-bold hover:underline">
+                        <a href="{{ Storage::url($req->attachment) }}" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-sky-50 hover:bg-sky-100 text-xs text-[#1E88E5] font-bold rounded-xl border border-sky-100 transition">
                             <i data-lucide="paperclip" class="w-3.5 h-3.5"></i>
                             <span>Lihat Lampiran Bukti Surat</span>
                         </a>
@@ -100,9 +125,14 @@
                 @endif
             </div>
         @empty
-            <div class="soft-card p-8 text-center text-xs text-slate-400">
-                <i data-lucide="inbox" class="w-10 h-10 text-slate-300 mx-auto mb-2"></i>
-                Tidak ada pengajuan izin pada kategori ini.
+            <div class="soft-card p-10 bg-white text-center flex flex-col items-center justify-center space-y-2.5">
+                <div class="w-14 h-14 rounded-3xl bg-sky-50 text-[#1E88E5] border border-sky-100 flex items-center justify-center">
+                    <i data-lucide="inbox" class="w-7 h-7 stroke-[1.8]"></i>
+                </div>
+                <h4 class="text-sm font-black text-slate-800">Tidak Ada Pengajuan Izin</h4>
+                <p class="text-xs text-slate-400 max-w-xs leading-relaxed">
+                    Tidak ditemukan surat izin atau sakit murid pada kategori <span class="font-bold text-slate-600 uppercase">{{ $filterStatus }}</span>.
+                </p>
             </div>
         @endforelse
     </div>
