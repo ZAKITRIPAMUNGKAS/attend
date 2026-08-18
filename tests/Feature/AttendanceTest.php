@@ -206,4 +206,21 @@ class AttendanceTest extends TestCase
             'method' => 'system',
         ]);
     }
+
+    public function test_pdf_and_excel_exports_are_accessible_for_admin()
+    {
+        $adminUser = User::where('role', 'admin')->first();
+
+        $pdfResponse = $this->actingAs($adminUser)->get('/export/pdf?date=' . Carbon::today()->toDateString());
+        $pdfResponse->assertStatus(200);
+
+        $excelResponse = $this->actingAs($adminUser)->get('/export/excel?mode=daily');
+        $excelResponse->assertStatus(200);
+
+        $printQrResponse = $this->actingAs($adminUser)->get('/export/print-qr');
+        $printQrResponse->assertStatus(200);
+
+        $printPosterResponse = $this->actingAs($adminUser)->get('/export/print-poster-qr');
+        $printPosterResponse->assertStatus(200);
+    }
 }

@@ -28,4 +28,9 @@ class Teacher extends Model
     {
         return $this->hasMany(SchoolClass::class, 'homeroom_teacher_id');
     }
+
+    public function homeroomClass(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(SchoolClass::class, 'homeroom_teacher_id');
+    }
 }

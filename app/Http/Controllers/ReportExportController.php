@@ -246,13 +246,13 @@ class ReportExportController extends Controller
 
         if ($mode === 'class' && $selectedClass) {
             $qrPayload = 'SMAIT_CLASS_QR_' . $selectedClass->id;
-            $title = 'QR Presensi Siswa';
+            $title = 'QR Presensi Murid';
             $subtitle = 'Kelas ' . $selectedClass->name;
         } else {
             $mode = 'general';
             $selectedClass = null;
             $qrPayload = 'SMAIT_GENERAL_ATTENDANCE_QR';
-            $title = 'QR Presensi Siswa';
+            $title = 'QR Presensi Murid';
             $subtitle = 'SMA IT Insan Kamil';
         }
 
