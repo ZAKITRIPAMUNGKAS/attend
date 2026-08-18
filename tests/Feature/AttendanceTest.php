@@ -58,6 +58,14 @@ class AttendanceTest extends TestCase
         $response->assertSee('Mulai Scan');
     }
 
+    public function test_teacher_permission_approval_accessible_when_authenticated()
+    {
+        $teacherUser = User::where('role', 'teacher')->first();
+        $response = $this->actingAs($teacherUser)->get('/guru/izin-siswa');
+        $response->assertStatus(200);
+        $response->assertSee('Persetujuan Izin');
+    }
+
     public function test_admin_dashboard_accessible_when_authenticated_as_admin()
     {
         $adminUser = User::where('role', 'admin')->first();

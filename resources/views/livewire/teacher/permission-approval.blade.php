@@ -84,7 +84,7 @@
                             <span>Setujui</span>
                         </button>
                         <button type="button" 
-                                wire:click="reject({{ $req->id }})"
+                                wire:click="openRejectModal({{ $req->id }})"
                                 class="px-4 py-2.5 bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold text-xs rounded-2xl border border-rose-200 flex items-center justify-center gap-1.5 transition active:scale-95 cursor-pointer">
                             <i data-lucide="x" class="w-4 h-4"></i>
                             <span>Tolak</span>
@@ -106,5 +106,39 @@
             </div>
         @endforelse
     </div>
+
+    <!-- Modal Alasan Penolakan Izin -->
+    @if($selectedRequestId)
+        <div class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs">
+            <div class="bg-white w-full max-w-sm rounded-3xl shadow-2xl p-5 space-y-3.5">
+                <div class="flex items-center justify-between border-b border-slate-100 pb-2.5">
+                    <h3 class="text-sm font-black text-slate-850">Tolak Pengajuan Izin</h3>
+                    <button type="button" wire:click="$set('selectedRequestId', null)" class="text-slate-400 hover:text-slate-700 cursor-pointer text-lg leading-none">&times;</button>
+                </div>
+
+                <div class="space-y-2">
+                    <label class="block text-[11px] font-bold text-slate-500 uppercase">Alasan Penolakan</label>
+                    <textarea wire:model="rejectionReason" 
+                              rows="3" 
+                              placeholder="Masukkan alasan penolakan izin..."
+                              class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-rose-500"></textarea>
+                    @error('rejectionReason') <span class="text-[10px] text-rose-600 font-bold block">{{ $message }}</span> @enderror
+                </div>
+
+                <div class="flex gap-2 pt-1">
+                    <button type="button" 
+                            wire:click="reject({{ $selectedRequestId }})" 
+                            class="flex-1 py-2.5 bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs rounded-xl shadow-md shadow-rose-500/20 cursor-pointer">
+                        Konfirmasi Tolak
+                    </button>
+                    <button type="button" 
+                            wire:click="$set('selectedRequestId', null)" 
+                            class="px-4 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs rounded-xl cursor-pointer">
+                        Batal
+                    </button>
+                </div>
+            </div>
+        </div>
+    @endif
 
 </div>

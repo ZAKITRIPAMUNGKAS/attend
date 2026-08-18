@@ -15,7 +15,7 @@ class PermissionApproval extends Component
     public string $filterStatus = 'menunggu'; // 'menunggu' | 'disetujui' | 'ditolak' | 'all'
     public ?int $selectedRequestId = null;
     public string $rejectionReason = '';
-    public string $successMessage = '';
+    public string $flashMessage = '';
 
     public function approve(int $requestId)
     {
@@ -41,7 +41,7 @@ class PermissionApproval extends Component
             ]
         );
 
-        $this->successMessage = "Izin {$req->student->name} berhasil disetujui.";
+        $this->flashMessage = "Izin {$req->student->name} berhasil disetujui.";
     }
 
     public function reject(int $requestId)
@@ -62,7 +62,7 @@ class PermissionApproval extends Component
 
         $this->selectedRequestId = null;
         $this->rejectionReason = '';
-        $this->successMessage = "Pengajuan izin {$req->student->name} ditolak.";
+        $this->flashMessage = "Pengajuan izin {$req->student->name} ditolak.";
     }
 
     public function openRejectModal(int $requestId)
