@@ -132,12 +132,12 @@
                 <p class="text-[10px] text-slate-400 mt-0.5">Log Masuk & Pulang</p>
             </a>
 
-            <!-- 4. Profil Siswa (Vibrant Amber/Orange Circle) -->
+            <!-- 4. Profil Murid (Vibrant Amber/Orange Circle) -->
             <a href="{{ route('student.profile') }}" class="soft-card-interactive p-4 flex flex-col items-center text-center group">
                 <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-amber-500 to-orange-400 text-white flex items-center justify-center shadow-md shadow-amber-500/25 mb-2.5 transition group-hover:scale-105">
                     <i data-lucide="user-check" class="w-7 h-7 stroke-[2.5]"></i>
                 </div>
-                <h4 class="text-xs font-bold text-slate-800">Akun Siswa</h4>
+                <h4 class="text-xs font-bold text-slate-800">Akun Murid</h4>
                 <p class="text-[10px] text-slate-400 mt-0.5">Biodata & Pass</p>
             </a>
         </div>

@@ -72,8 +72,8 @@
 
     <div class="header">
         <h1>SMA IT INSAN KAMIL</h1>
-        <p>Sistem Informasi & Manajemen Kehadiran Siswa Terpadu</p>
-        <p>Laporan Resmi Kehadiran Siswa — Tanggal: <strong>{{ \Carbon\Carbon::parse($date)->translatedFormat('d F Y') }}</strong></p>
+        <p>Sistem Informasi & Manajemen Kehadiran Murid Terpadu</p>
+        <p>Laporan Resmi Kehadiran Murid — Tanggal: <strong>{{ \Carbon\Carbon::parse($date)->translatedFormat('d F Y') }}</strong></p>
         @if($schoolClass)
             <p>Kelas: <strong>{{ $schoolClass->name }}</strong></p>
         @endif
@@ -84,7 +84,7 @@
             <tr>
                 <th style="width: 5%;" class="text-center">No</th>
                 <th style="width: 20%;">NISN</th>
-                <th style="width: 35%;">Nama Siswa</th>
+                <th style="width: 35%;">Nama Murid</th>
                 <th style="width: 15%;">Kelas</th>
                 <th style="width: 10%;" class="text-center">Jam</th>
                 <th style="width: 15%;" class="text-center">Status</th>

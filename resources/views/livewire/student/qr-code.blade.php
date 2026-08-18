@@ -39,7 +39,7 @@
                 <img src="{{ asset('logo.png') }}" alt="Logo SMA IT Insan Kamil" class="w-full h-full object-contain" />
             </div>
             <h3 class="text-sm font-black tracking-wide uppercase">SMA IT INSAN KAMIL</h3>
-            <p class="text-[10px] text-sky-100 font-bold tracking-wider">KARTU DIGITAL IDENTITAS SISWA</p>
+            <p class="text-[10px] text-sky-100 font-bold tracking-wider">KARTU DIGITAL IDENTITAS MURID</p>
             <div class="absolute top-4 right-4 text-[9px] bg-white/20 backdrop-blur-md px-2.5 py-0.5 rounded-full font-bold border border-white/25">
                 {{ $student->academicYear->name ?? '2026/2027' }}
             </div>

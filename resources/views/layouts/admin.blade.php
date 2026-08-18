@@ -116,14 +116,14 @@
                         </span>
                     </a>
 
-                    <!-- 2. Siswa -->
+                    <!-- 2. Murid -->
                     <a href="{{ route('admin.students') }}" 
                        class="flex flex-col items-center justify-center flex-1 py-1 transition group">
                         <div class="p-1.5 rounded-2xl transition {{ str_starts_with($currentRoute, 'admin.students') ? 'bg-sky-100 text-[#1E88E5]' : 'text-slate-400 group-hover:text-slate-600' }}">
                             <i data-lucide="users" class="w-5 h-5 {{ str_starts_with($currentRoute, 'admin.students') ? 'stroke-[2.5]' : '' }}"></i>
                         </div>
                         <span class="text-[9px] font-bold mt-0.5 {{ str_starts_with($currentRoute, 'admin.students') ? 'text-[#1E88E5]' : 'text-slate-400' }}">
-                            Siswa
+                            Murid
                         </span>
                     </a>
 

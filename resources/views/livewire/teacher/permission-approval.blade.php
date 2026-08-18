@@ -14,7 +14,7 @@
     <!-- Header & Filter Tabs -->
     <div class="flex items-center justify-between">
         <div>
-            <h2 class="text-sm font-black text-slate-850">Persetujuan Izin & Sakit Siswa</h2>
+            <h2 class="text-sm font-black text-slate-850">Persetujuan Izin & Sakit Murid</h2>
             <p class="text-[11px] text-slate-400">Verifikasi surat izin dan dokter</p>
         </div>
 
@@ -42,7 +42,7 @@
                             {{ $idx + 1 }}
                         </div>
                         <div>
-                            <h4 class="text-sm font-black text-slate-850">{{ $req->student->name ?? 'Siswa' }}</h4>
+                            <h4 class="text-sm font-black text-slate-850">{{ $req->student->name ?? 'Murid' }}</h4>
                             <p class="text-[11px] text-slate-400 font-semibold">
                                 {{ $req->student->schoolClass->name ?? '-' }} • NISN: {{ $req->student->nisn }}
                             </p>

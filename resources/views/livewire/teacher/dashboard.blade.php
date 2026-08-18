@@ -13,7 +13,7 @@
                         {{ $stats['class']->name }}
                     </h2>
                     <p class="text-xs text-slate-500 font-medium">
-                        Total Siswa: <strong class="text-slate-800">{{ $stats['total_students'] }} Orang</strong> • Sudah Pulang: <strong class="text-blue-600 font-bold">{{ $stats['sudah_pulang'] }}</strong>
+                        Total Murid: <strong class="text-slate-800">{{ $stats['total_students'] }} Orang</strong> • Sudah Pulang: <strong class="text-blue-600 font-bold">{{ $stats['sudah_pulang'] }}</strong>
                     </p>
                 @else
                     <h2 class="text-lg font-black text-slate-850 leading-snug">
@@ -157,8 +157,8 @@
         <!-- 4. Chapter-List Style Student Presence List (Inspired by Reference UI) -->
         <div class="space-y-3">
             <div class="flex items-center justify-between">
-                <h3 class="text-sm font-black text-slate-850 tracking-tight">Daftar Kehadiran Siswa</h3>
-                <span class="text-xs font-bold text-slate-400">{{ count($stats['students']) }} Siswa</span>
+                <h3 class="text-sm font-black text-slate-850 tracking-tight">Daftar Kehadiran Murid</h3>
+                <span class="text-xs font-bold text-slate-400">{{ count($stats['students']) }} Murid</span>
             </div>
 
             <div class="space-y-2">

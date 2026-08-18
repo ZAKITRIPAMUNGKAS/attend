@@ -19,7 +19,7 @@
             </div>
             <div>
                 <h2 class="text-base font-black text-slate-850 tracking-tight">Pengaturan Jam Masuk & Pulang</h2>
-                <p class="text-xs text-slate-400">Atur jadwal absensi masuk pagi dan sesi kepulangan siswa.</p>
+                <p class="text-xs text-slate-400">Atur jadwal absensi masuk pagi dan sesi kepulangan murid.</p>
             </div>
         </div>
 
@@ -77,7 +77,7 @@
                        wire:model="auto_absent_at" 
                        required 
                        class="w-full px-4 py-2.5 bg-white border border-sky-100 rounded-xl text-xs font-mono font-bold text-slate-800 focus:outline-none focus:ring-2 focus:ring-sky-500" />
-                    <p class="text-[11px] text-slate-400">Siswa yang belum hadir otomatis ditandai <strong class="text-rose-600">ALPA</strong>.</p>
+                    <p class="text-[11px] text-slate-400">Murid yang belum hadir otomatis ditandai <strong class="text-rose-600">ALPA</strong>.</p>
                 </div>
             </div>
 

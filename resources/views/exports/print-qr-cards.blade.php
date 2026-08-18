@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cetak Kartu QR Siswa — SMA IT Insan Kamil</title>
+    <title>Cetak Kartu QR Murid — SMA IT Insan Kamil</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet">
@@ -59,9 +59,9 @@
                 <img src="{{ asset('logo.png') }}" alt="Logo SMA IT" class="w-full h-full object-contain" />
             </div>
             <div>
-                <h1 class="text-sm font-black text-slate-850">Cetak Kartu QR Identitas Siswa</h1>
+                <h1 class="text-sm font-black text-slate-850">Cetak Kartu QR Identitas Murid</h1>
                 <p class="text-xs text-slate-500">
-                    Total: <strong class="text-slate-800">{{ count($students) }} Siswa</strong> 
+                    Total: <strong class="text-slate-800">{{ count($students) }} Murid</strong> 
                     {{ $schoolClass ? "• Rombel {$schoolClass->name}" : '• Seluruh Rombel' }}
                     (A4: 6-8 Kartu per lembar)
                 </p>
@@ -93,7 +93,7 @@
                             </div>
                             <div>
                                 <h3 class="text-[11px] font-black tracking-wider uppercase leading-none">SMA IT INSAN KAMIL</h3>
-                                <p class="text-[8px] text-sky-100 font-semibold tracking-wider leading-tight mt-0.5">KARTU PRESENSI DIGITAL SISWA</p>
+                                <p class="text-[8px] text-sky-100 font-semibold tracking-wider leading-tight mt-0.5">KARTU PRESENSI DIGITAL MURID</p>
                             </div>
                         </div>
                         <span class="text-[8px] font-extrabold bg-white/20 px-2 py-0.5 rounded-md backdrop-blur-xs border border-white/20 uppercase tracking-wider">
@@ -108,7 +108,7 @@
                         <div class="flex-1 min-w-0 pr-1 space-y-1.5">
                             <div>
                                 <span class="text-[8px] font-extrabold uppercase tracking-wider text-sky-600 bg-sky-50 px-2 py-0.5 rounded-md border border-sky-100 inline-block">
-                                    {{ $s->schoolClass->name ?? 'Siswa' }}
+                                    {{ $s->schoolClass->name ?? 'Murid' }}
                                 </span>
                                 <h4 class="text-[13px] font-black text-slate-900 truncate mt-1 leading-tight" title="{{ $s->name }}">
                                     {{ $s->name }}
@@ -157,7 +157,7 @@
                 </div>
             @empty
                 <div class="col-span-2 p-12 bg-white rounded-2xl text-center text-slate-400 text-xs">
-                    Tidak ada data siswa untuk dicetak.
+                    Tidak ada data murid untuk dicetak.
                 </div>
             @endforelse
         </div>

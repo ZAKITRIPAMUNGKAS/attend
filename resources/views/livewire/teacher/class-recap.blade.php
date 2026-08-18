@@ -7,7 +7,7 @@
                 <span class="text-[10px] font-extrabold uppercase tracking-wider text-sky-600 bg-sky-50 px-2.5 py-0.5 rounded-full border border-sky-100">
                     Laporan Presensi
                 </span>
-                <h2 class="text-sm font-black text-slate-850 tracking-tight mt-1">Rekap Presensi Siswa</h2>
+                <h2 class="text-sm font-black text-slate-850 tracking-tight mt-1">Rekap Presensi Murid</h2>
             </div>
 
             <!-- View Mode Switcher (Harian / Mingguan) -->
@@ -65,7 +65,7 @@
                 <div class="flex items-center gap-2">
                     <i data-lucide="table-2" class="w-4 h-4 text-[#1E88E5]"></i>
                     <h3 class="text-xs font-black uppercase tracking-wider text-slate-850">
-                        Matriks Senin – Jumat ({{ count($students) }} Siswa)
+                        Matriks Senin – Jumat ({{ count($students) }} Murid)
                     </h3>
                 </div>
             </div>
@@ -75,7 +75,7 @@
                     <thead class="bg-sky-50/50 text-[10px] uppercase font-black text-slate-500 border-b border-slate-100">
                         <tr>
                             <th class="p-3 w-8 text-center">No</th>
-                            <th class="p-3">Nama Siswa</th>
+                            <th class="p-3">Nama Murid</th>
                             @foreach($weekDays as $d)
                                 <th class="p-3 text-center">
                                     <div>{{ $d['day_name'] }}</div>
@@ -119,7 +119,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="9" class="p-8 text-center text-slate-400 text-xs">Belum ada data siswa di kelas ini.</td>
+                                <td colspan="9" class="p-8 text-center text-slate-400 text-xs">Belum ada data murid di kelas ini.</td>
                             </tr>
                         @endforelse
                     </tbody>
@@ -134,7 +134,7 @@
                     <thead class="bg-sky-50/50 text-[10px] uppercase font-black text-slate-500 border-b border-slate-100">
                         <tr>
                             <th class="p-3.5 w-12 text-center">No</th>
-                            <th class="p-3.5">Nama Siswa</th>
+                            <th class="p-3.5">Nama Murid</th>
                             <th class="p-3.5">NISN</th>
                             <th class="p-3.5">Jam Masuk</th>
                             <th class="p-3.5">Keterlambatan</th>
@@ -168,7 +168,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="6" class="p-8 text-center text-slate-400 text-xs">Belum ada siswa di kelas ini.</td>
+                                <td colspan="6" class="p-8 text-center text-slate-400 text-xs">Belum ada murid di kelas ini.</td>
                             </tr>
                         @endforelse
                     </tbody>

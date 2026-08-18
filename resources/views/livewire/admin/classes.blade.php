@@ -46,7 +46,7 @@
                     </div>
 
                     <span class="px-2.5 py-1 rounded-xl text-[10px] font-extrabold bg-blue-50 text-blue-700 border border-blue-100 shrink-0">
-                        {{ $c->students_count }} Siswa
+                        {{ $c->students_count }} Murid
                     </span>
                 </div>
 

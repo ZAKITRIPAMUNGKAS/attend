@@ -101,7 +101,7 @@
                     <thead class="bg-sky-50/50 text-[10px] uppercase font-black text-slate-500 border-b border-slate-100">
                         <tr>
                             <th class="p-3.5 w-10 text-center">No</th>
-                            <th class="p-3.5">Nama Siswa</th>
+                            <th class="p-3.5">Nama Murid</th>
                             <th class="p-3.5">Kelas</th>
                             <th class="p-3.5">Masuk</th>
                             <th class="p-3.5">Pulang</th>
@@ -143,7 +143,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="7" class="p-8 text-center text-slate-400 text-xs">Belum ada siswa pada filter ini.</td>
+                                <td colspan="7" class="p-8 text-center text-slate-400 text-xs">Belum ada murid pada filter ini.</td>
                             </tr>
                         @endforelse
                     </tbody>
@@ -157,7 +157,7 @@
                     <thead class="bg-sky-50/50 text-[10px] uppercase font-black text-slate-500 border-b border-slate-100">
                         <tr>
                             <th class="p-3 w-8 text-center">No</th>
-                            <th class="p-3">Nama Siswa</th>
+                            <th class="p-3">Nama Murid</th>
                             @foreach($weekDays as $d)
                                 <th class="p-3 text-center">
                                     <div>{{ $d['day_name'] }}</div>
@@ -215,7 +215,7 @@
                     <thead class="bg-sky-50/50 text-[10px] uppercase font-black text-slate-500 border-b border-slate-100">
                         <tr>
                             <th class="p-3.5 w-10 text-center">No</th>
-                            <th class="p-3.5">Nama Siswa</th>
+                            <th class="p-3.5">Nama Murid</th>
                             <th class="p-3.5 text-center">H</th>
                             <th class="p-3.5 text-center">T</th>
                             <th class="p-3.5 text-center">I</th>
@@ -255,7 +255,7 @@
             <div class="bg-white w-full max-w-md rounded-3xl shadow-2xl p-6 space-y-4">
                 <div class="flex items-center justify-between border-b border-slate-100 pb-3">
                     <div>
-                        <h3 class="text-sm font-black text-slate-850">Koreksi Presensi Siswa</h3>
+                        <h3 class="text-sm font-black text-slate-850">Koreksi Presensi Murid</h3>
                         <p class="text-xs text-[#1E88E5] font-bold">{{ $editingStudentName }}</p>
                     </div>
                     <button type="button" wire:click="$set('showEditModal', false)" class="text-slate-400 hover:text-slate-700 cursor-pointer">&times;</button>

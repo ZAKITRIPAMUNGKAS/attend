@@ -22,14 +22,14 @@
                         Direktori Kelas & Roster
                     </span>
                     <h2 class="text-base font-black text-slate-850 tracking-tight mt-1">Pilih Rombongan Belajar</h2>
-                    <p class="text-[11px] text-slate-400">Pilih kelas untuk melihat & mengelola daftar siswa.</p>
+                    <p class="text-[11px] text-slate-400">Pilih kelas untuk melihat & mengelola daftar murid.</p>
                 </div>
 
                 <button type="button" 
                         wire:click="create" 
                         class="py-2 px-3 bg-gradient-to-r from-[#1E88E5] to-[#42A5F5] hover:from-[#1976D2] hover:to-[#1E88E5] text-white font-bold text-xs rounded-xl shadow-md shadow-sky-500/20 flex items-center gap-1.5 transition active:scale-95 cursor-pointer shrink-0">
                     <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" x2="19" y1="8" y2="14"/><line x1="22" x2="16" y1="11" y2="11"/></svg>
-                    <span>+ Siswa</span>
+                    <span>+ Murid</span>
                 </button>
             </div>
 
@@ -39,7 +39,7 @@
                         wire:click="showAllStudents" 
                         class="flex-1 py-2 px-3 bg-[#F4F8FC] hover:bg-sky-50 text-[#1E88E5] border border-sky-100 font-bold text-xs rounded-xl flex items-center justify-center gap-1.5 transition cursor-pointer">
                     <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                    <span>Semua Siswa (Global)</span>
+                    <span>Semua Murid (Global)</span>
                 </button>
 
                 <a href="{{ route('export.students') }}" 
@@ -71,7 +71,7 @@
                             </div>
 
                             <span class="px-2.5 py-1 rounded-xl text-[10px] font-extrabold bg-blue-50 text-blue-700 border border-blue-100">
-                                {{ $c->students_count }} Siswa
+                                {{ $c->students_count }} Murid
                             </span>
                         </div>
 
@@ -79,7 +79,7 @@
                         <button type="button" 
                                 wire:click="selectClass({{ $c->id }})" 
                                 class="w-full py-2.5 bg-gradient-to-r from-[#1E88E5] to-[#42A5F5] hover:from-[#1976D2] hover:to-[#1E88E5] text-white font-bold text-xs rounded-xl shadow-md shadow-sky-500/20 flex items-center justify-center gap-1.5 transition active:scale-98 cursor-pointer">
-                            <span>Buka Data Siswa {{ $c->name }}</span>
+                            <span>Buka Data Murid {{ $c->name }}</span>
                             <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                         </button>
                     </div>
@@ -92,7 +92,7 @@
         </div>
 
     <!-- ========================================================= -->
-    <!-- VIEW 2: DATA SISWA KELAS TERPILIH / GLOBAL               -->
+    <!-- VIEW 2: DATA MURID KELAS TERPILIH / GLOBAL               -->
     <!-- ========================================================= -->
     @else
         <!-- Back Navigation & Class Header Card -->
@@ -108,13 +108,13 @@
 
             <div>
                 <span class="text-[10px] font-extrabold uppercase tracking-wider text-sky-600 bg-sky-50 px-2.5 py-0.5 rounded-full border border-sky-100">
-                    {{ $currentClass ? 'Rombel ' . $currentClass->name : 'Semua Siswa Sekolah' }}
+                    {{ $currentClass ? 'Rombel ' . $currentClass->name : 'Semua Murid Sekolah' }}
                 </span>
                 <h2 class="text-base font-black text-slate-850 tracking-tight mt-1">
-                    {{ $currentClass ? 'Data Siswa ' . $currentClass->name : 'Daftar Seluruh Siswa' }}
+                    {{ $currentClass ? 'Data Murid ' . $currentClass->name : 'Daftar Seluruh Murid' }}
                 </h2>
                 <p class="text-[11px] text-slate-500 font-medium">
-                    Total {{ $students ? $students->total() : 0 }} Siswa terdaftar.
+                    Total {{ $students ? $students->total() : 0 }} Murid terdaftar.
                 </p>
             </div>
 
@@ -124,7 +124,7 @@
                         wire:click="create" 
                         class="py-2.5 px-2 bg-gradient-to-r from-[#1E88E5] to-[#42A5F5] hover:from-[#1976D2] hover:to-[#1E88E5] text-white font-bold text-xs rounded-xl shadow-md shadow-sky-500/20 flex items-center justify-center gap-1.5 transition active:scale-95 cursor-pointer">
                     <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" x2="19" y1="8" y2="14"/><line x1="22" x2="16" y1="11" y2="11"/></svg>
-                    <span>+ Siswa</span>
+                    <span>+ Murid</span>
                 </button>
 
                 <a href="{{ route('export.students', ['class_id' => $selectedClassId]) }}" 
@@ -149,7 +149,7 @@
                 </div>
                 <input type="text" 
                        wire:model.live.debounce.300ms="search" 
-                       placeholder="Cari nama atau NISN siswa..." 
+                       placeholder="Cari nama atau NISN murid..." 
                        class="w-full pl-10 pr-4 py-2.5 bg-[#F4F8FC] border border-sky-100 rounded-xl text-xs font-semibold text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500" />
             </div>
         </div>
@@ -197,7 +197,7 @@
                             <!-- Detail Profile Button -->
                             <button type="button" 
                                     wire:click="showDetail({{ $s->id }})" 
-                                    title="Lihat Detail Profil Siswa"
+                                    title="Lihat Detail Profil Murid"
                                     class="h-7 px-2.5 rounded-xl bg-sky-50 hover:bg-sky-100 text-[#1E88E5] border border-sky-200/80 font-black text-[10px] flex items-center gap-1 transition active:scale-95 cursor-pointer shadow-2xs">
                                 <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
                                 <span>Detail</span>
@@ -206,7 +206,7 @@
                             <!-- Reset Password DOB -->
                             <button type="button" 
                                     wire:click="resetPassword({{ $s->id }})" 
-                                    wire:confirm="Reset password akun siswa ini ke format tanggal lahir (DDMMYYYY)?"
+                                    wire:confirm="Reset password akun murid ini ke format tanggal lahir (DDMMYYYY)?"
                                     title="Reset Password ke Tanggal Lahir (DOB)"
                                     class="w-7 h-7 rounded-xl bg-amber-50 hover:bg-amber-100 text-amber-700 border border-amber-200/80 flex items-center justify-center transition active:scale-95 cursor-pointer shadow-2xs">
                                 <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m21 2-2 2m-1.5 1.5L14 9l-1.5-1.5L11 9l-1.5-1.5L8 9l-4.5 4.5a3.5 3.5 0 1 0 5 5L13 14l1.5-1.5L13 11l1.5-1.5L16 11l1.5-1.5L19 11l2-2Z"/></svg>
@@ -215,7 +215,7 @@
                             <!-- Regenerate QR Token -->
                             <button type="button" 
                                     wire:click="regenerateQr({{ $s->id }})" 
-                                    wire:confirm="Perbarui token kode QR siswa ini?"
+                                    wire:confirm="Perbarui token kode QR murid ini?"
                                     title="Perbarui / Regenerate Token QR"
                                     class="w-7 h-7 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-600 border border-indigo-200/80 flex items-center justify-center transition active:scale-95 cursor-pointer shadow-2xs">
                                 <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="5" height="5" x="3" y="3" rx="1"/><rect width="5" height="5" x="16" y="3" rx="1"/><rect width="5" height="5" x="3" y="16" rx="1"/><path d="M21 16h-3a2 2 0 0 0-2 2v3"/><path d="M21 21v.01"/><path d="M12 7v3a2 2 0 0 1-2 2H7"/><path d="M3 12h.01"/><path d="M12 3h.01"/><path d="M12 16v.01"/><path d="M16 12h1"/><path d="M21 12v.01"/><path d="M12 21v-1"/></svg>
@@ -224,16 +224,16 @@
                             <!-- Edit Biodata Lengkap -->
                             <button type="button" 
                                     wire:click="edit({{ $s->id }})" 
-                                    title="Edit Biodata Siswa"
+                                    title="Edit Biodata Murid"
                                     class="w-7 h-7 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-600 border border-slate-200 flex items-center justify-center transition active:scale-95 cursor-pointer shadow-2xs">
                                 <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/></svg>
                             </button>
 
-                            <!-- Hapus Siswa -->
+                            <!-- Hapus Murid -->
                             <button type="button" 
                                     wire:click="delete({{ $s->id }})" 
-                                    wire:confirm="Hapus data siswa ini?"
-                                    title="Hapus Siswa"
+                                    wire:confirm="Hapus data murid ini?"
+                                    title="Hapus Murid"
                                     class="w-7 h-7 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-600 border border-rose-200/80 flex items-center justify-center transition active:scale-95 cursor-pointer shadow-2xs">
                                 <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg>
                             </button>
@@ -242,7 +242,7 @@
                 </div>
             @empty
                 <div class="soft-card p-8 text-center text-xs text-slate-400">
-                    Belum ada siswa yang terdaftar pada kelas ini.
+                    Belum ada murid yang terdaftar pada kelas ini.
                 </div>
             @endforelse
 
@@ -253,7 +253,7 @@
     @endif
 
     <!-- ========================================================= -->
-    <!-- MODAL: DETAIL LENGKAP SISWA                               -->
+    <!-- MODAL: DETAIL LENGKAP MURID                               -->
     <!-- ========================================================= -->
     @if($showDetailModal && $detailedStudent)
         <div class="fixed inset-0 z-[70] flex items-center justify-center p-3 sm:p-4 bg-slate-900/60 backdrop-blur-xs">
@@ -262,7 +262,7 @@
                 <!-- Modal Sticky Header -->
                 <div class="p-4 border-b border-slate-100 flex items-center justify-between shrink-0 bg-white">
                     <span class="text-[10px] font-extrabold uppercase tracking-wider text-sky-600 bg-sky-50 px-2.5 py-0.5 rounded-full border border-sky-100">
-                        Profil Siswa
+                        Profil Murid
                     </span>
                     <button type="button" wire:click="$set('showDetailModal', false)" class="text-slate-400 hover:text-slate-700 cursor-pointer text-lg leading-none p-1">&times;</button>
                 </div>
@@ -335,7 +335,7 @@
                                 </span>
                             </div>
                             <div class="flex justify-between items-center">
-                                <span class="text-slate-400">Telepon Siswa</span>
+                                <span class="text-slate-400">Telepon Murid</span>
                                 <span class="font-mono font-bold text-slate-800">{{ $detailedStudent->phone ?: '-' }}</span>
                             </div>
                         </div>
@@ -401,14 +401,14 @@
     @endif
 
     <!-- ========================================================= -->
-    <!-- MODAL: TAMBAH / EDIT BIODATA SISWA                        -->
+    <!-- MODAL: TAMBAH / EDIT BIODATA MURID                        -->
     <!-- ========================================================= -->
     @if($showModal)
         <div class="fixed inset-0 z-[70] flex items-center justify-center p-3 sm:p-4 bg-slate-900/60 backdrop-blur-xs">
             <div class="bg-white w-full max-w-sm rounded-3xl shadow-2xl flex flex-col max-h-[85vh] overflow-hidden">
                 <div class="p-4 border-b border-slate-100 flex items-center justify-between shrink-0 bg-white">
                     <h3 class="text-sm font-black text-slate-850">
-                        {{ $studentId ? 'Edit Data Siswa' : 'Tambah Siswa Baru' }}
+                        {{ $studentId ? 'Edit Data Murid' : 'Tambah Murid Baru' }}
                     </h3>
                     <button type="button" wire:click="$set('showModal', false)" class="text-slate-400 hover:text-slate-700 cursor-pointer text-base p-1">&times;</button>
                 </div>

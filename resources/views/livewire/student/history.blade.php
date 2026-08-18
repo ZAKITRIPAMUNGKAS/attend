@@ -168,7 +168,7 @@
                         {{ $selectedCarbon->isWeekend() ? 'Hari Libur Akhir Pekan' : 'Tidak Ada Catatan Kehadiran' }}
                     </h4>
                     <p class="text-[11px] text-slate-400 mt-0.5">
-                        {{ $selectedCarbon->isWeekend() ? 'Tidak ada kegiatan belajar mengajar pada hari ini.' : 'Siswa belum / tidak memiliki log absensi pada tanggal ini.' }}
+                        {{ $selectedCarbon->isWeekend() ? 'Tidak ada kegiatan belajar mengajar pada hari ini.' : 'Murid belum / tidak memiliki log absensi pada tanggal ini.' }}
                     </p>
                 </div>
             </div>

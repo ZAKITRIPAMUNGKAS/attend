@@ -8,13 +8,13 @@
         <h2 class="text-base font-black text-slate-850">{{ $student->name }}</h2>
         <p class="text-xs text-[#1E88E5] font-bold mt-0.5">{{ $student->schoolClass->name ?? '-' }}</p>
         <span class="mt-2 text-[10px] uppercase font-extrabold tracking-wider px-3 py-0.5 rounded-full bg-sky-50 text-[#1E88E5] border border-sky-200">
-            Siswa Aktif
+            Murid Aktif
         </span>
     </div>
 
     <!-- Biodata Info -->
     <div class="soft-card p-5 space-y-3">
-        <h3 class="text-[11px] font-extrabold text-slate-400 uppercase tracking-wider">Biodata Siswa</h3>
+        <h3 class="text-[11px] font-extrabold text-slate-400 uppercase tracking-wider">Biodata Murid</h3>
         
         <div class="space-y-2.5 text-xs">
             <div class="flex justify-between py-1.5 border-b border-slate-100">
@@ -38,7 +38,7 @@
 
     <!-- Contact Form -->
     <div class="soft-card p-5 space-y-3">
-        <h3 class="text-[11px] font-extrabold text-slate-400 uppercase tracking-wider">Nomor WhatsApp Siswa</h3>
+        <h3 class="text-[11px] font-extrabold text-slate-400 uppercase tracking-wider">Nomor WhatsApp Murid</h3>
         
         @if($successProfile)
             <div class="p-3 rounded-2xl bg-emerald-50 text-emerald-850 text-xs font-semibold">

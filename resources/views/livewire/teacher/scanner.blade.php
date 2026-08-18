@@ -118,7 +118,7 @@
                     <i data-lucide="camera" class="w-8 h-8"></i>
                 </div>
                 <h4 class="text-sm font-bold text-white">Nyalakan Kamera Scanner</h4>
-                <p class="text-xs text-slate-400 mt-1 max-w-xs">Arahkan kamera ke QR Code pada kartu siswa.</p>
+                <p class="text-xs text-slate-400 mt-1 max-w-xs">Arahkan kamera ke QR Code pada kartu murid.</p>
                 <button type="button" 
                         @click="startScanner()" 
                         class="mt-4 px-6 py-2.5 bg-gradient-to-r from-[#1E88E5] to-[#42A5F5] hover:from-[#1976D2] hover:to-[#1E88E5] text-white text-xs font-bold rounded-2xl shadow-lg shadow-sky-500/30 transition active:scale-95 cursor-pointer">
@@ -145,7 +145,7 @@
         <form wire:submit="submitManual" class="flex gap-2">
             <input type="text" 
                    wire:model="manualInput" 
-                   placeholder="Ketik NISN atau Token QR Siswa..." 
+                   placeholder="Ketik NISN atau Token QR Murid..." 
                    class="flex-1 px-4 py-2.5 bg-[#F4F8FC] border border-sky-100 rounded-2xl text-xs font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-sky-500" />
             <button type="submit" class="px-5 py-2.5 bg-[#1E88E5] hover:bg-[#1976D2] text-white text-xs font-bold rounded-2xl shadow-md shadow-sky-500/20 transition active:scale-95 cursor-pointer">
                 Proses
@@ -165,7 +165,7 @@
                             {{ $idx + 1 }}
                         </div>
                         <div>
-                            <h4 class="text-xs font-bold text-slate-850">{{ $att->student->name ?? 'Siswa' }}</h4>
+                            <h4 class="text-xs font-bold text-slate-850">{{ $att->student->name ?? 'Murid' }}</h4>
                             <p class="text-[10px] text-slate-400">
                                 {{ $att->student->schoolClass->name ?? '-' }} • 
                                 <span class="font-mono text-slate-700">In: {{ substr($att->check_in, 0, 5) }}</span>

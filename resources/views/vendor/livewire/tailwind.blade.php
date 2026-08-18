@@ -1,8 +1,8 @@
-﻿@if ($paginator->hasPages())
+@if ($paginator->hasPages())
     <nav role="navigation" aria-label="Pagination" class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-3">
         <!-- Info text -->
         <p class="text-xs text-slate-500 font-medium text-center sm:text-left">
-            Menampilkan <span class="font-black text-slate-850">{{ $paginator->firstItem() }}</span> &ndash; <span class="font-black text-slate-850">{{ $paginator->lastItem() }}</span> dari <span class="font-black text-slate-850">{{ $paginator->total() }}</span> siswa
+            Menampilkan <span class="font-black text-slate-850">{{ $paginator->firstItem() }}</span> &ndash; <span class="font-black text-slate-850">{{ $paginator->lastItem() }}</span> dari <span class="font-black text-slate-850">{{ $paginator->total() }}</span> data
         </p>
 
         <!-- Buttons group -->

@@ -87,13 +87,13 @@
                 </div>
                 <div class="mt-3 flex items-center gap-1.5 text-[10px] font-bold text-slate-600">
                     <svg class="w-3.5 h-3.5 text-emerald-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                    <span>Scan menggunakan Kamera HP Siswa</span>
+                    <span>Scan menggunakan Kamera HP Murid</span>
                 </div>
             </div>
 
             <!-- Instruction Footer -->
             <p class="text-[10px] text-slate-400 mt-3 leading-relaxed max-w-xs">
-                Siswa cukup membuka menu <strong>Scan Presensi</strong> di HP masing-masing dan mengarahkan kamera ke kode QR ini.
+                Murid cukup membuka menu <strong>Scan Presensi</strong> di HP masing-masing dan mengarahkan kamera ke kode QR ini.
             </p>
         </div>
     </div>
@@ -129,7 +129,7 @@
                 </div>
                 <div class="text-left">
                     <p class="text-xs font-bold text-slate-500">Notifikasi Langsung ke Orang Tua</p>
-                    <p class="text-[10px] text-slate-400">Kirim pesan WhatsApp/SMS otomatis ke wali siswa</p>
+                    <p class="text-[10px] text-slate-400">Kirim pesan WhatsApp/SMS otomatis ke wali murid</p>
                 </div>
             </div>
             <span class="text-[9px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full bg-amber-100 text-amber-700 border border-amber-200 shrink-0">Coming Soon</span>

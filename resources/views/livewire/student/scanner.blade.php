@@ -4,7 +4,7 @@
     <div class="soft-card p-4 space-y-3 bg-white">
         <div>
             <span class="text-[10px] font-extrabold uppercase tracking-wider text-sky-600 bg-sky-50 px-2.5 py-0.5 rounded-full border border-sky-100">
-                Presensi Mandiri Siswa
+                Presensi Mandiri Murid
             </span>
             <h2 class="text-base font-black text-slate-850 tracking-tight mt-1">Scan QR Presensi Sekolah</h2>
             <p class="text-[11px] text-slate-400">Arahkan kamera ke QR General (Lobi/Gerbang) atau QR Kelas Anda.</p>

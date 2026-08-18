@@ -105,7 +105,7 @@
                         </span>
                     </a>
 
-                    <!-- 2. Izin Siswa -->
+                    <!-- 2. Izin Murid -->
                     <a href="{{ route('teacher.permissions') }}" 
                        class="flex flex-col items-center justify-center flex-1 py-1 transition group relative">
                         <div class="p-1.5 rounded-2xl transition relative {{ $currentRoute === 'teacher.permissions' ? 'bg-sky-100 text-[#1E88E5]' : 'text-slate-400 group-hover:text-slate-600' }}">

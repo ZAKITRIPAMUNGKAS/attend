@@ -10,7 +10,7 @@
         </div>
         <h2 class="text-2xl font-black text-slate-850 tracking-tight">SmartAbsensi</h2>
         <p class="text-[11px] font-extrabold text-[#1E88E5] mt-0.5 uppercase tracking-wider">SMA IT INSAN KAMIL</p>
-        <p class="text-xs text-slate-400 mt-1">Sistem Absensi Siswa & Manajemen Kehadiran</p>
+        <p class="text-xs text-slate-400 mt-1">Sistem Absensi Murid & Manajemen Kehadiran</p>
     </div>
 
     <!-- Error Alert -->
@@ -58,7 +58,7 @@
                        required
                        class="w-full pl-10 pr-11 py-3 bg-[#F4F8FC] border border-sky-100 rounded-2xl text-xs font-semibold text-left text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:bg-white transition" />
                 <button type="button" 
-                        @click="showPass = !showPass" 
+                       @click="showPass = !showPass" 
                         class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-slate-400 hover:text-slate-600 transition cursor-pointer">
                     <template x-if="!showPass">
                         <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
@@ -70,7 +70,7 @@
             </div>
             @error('password') <span class="text-[10px] text-rose-600 mt-1 block font-medium text-left">{{ $message }}</span> @enderror
             <p class="text-[11px] text-slate-400 mt-1.5 text-left">
-                <strong class="text-sky-700">Siswa:</strong> Password awal = tanggal lahir <code class="bg-sky-50 text-sky-800 px-1 py-0.5 rounded font-mono font-bold">DDMMYYYY</code>
+                <strong class="text-sky-700">Murid:</strong> Password awal = tanggal lahir <code class="bg-sky-50 text-sky-800 px-1 py-0.5 rounded font-mono font-bold">DDMMYYYY</code>
             </p>
         </div>
 
@@ -112,12 +112,12 @@
                 <span>Guru</span>
             </button>
 
-            <!-- Siswa Real -->
+            <!-- Murid Real -->
             <button type="button" 
                     wire:click="$set('identifier', '26271001'); $set('password', '02022010');" 
                     class="py-2.5 px-2 rounded-2xl bg-sky-50 hover:bg-sky-100 text-[#1E88E5] text-xs font-bold transition active:scale-95 cursor-pointer flex items-center justify-center gap-1.5 border border-sky-200/70 shadow-2xs">
                 <svg class="w-3.5 h-3.5 text-[#1E88E5] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                <span>Siswa</span>
+                <span>Murid</span>
             </button>
         </div>
     </div>

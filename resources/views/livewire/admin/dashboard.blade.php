@@ -29,7 +29,7 @@
                 <div class="pt-2">
                     <button type="button" 
                             wire:click="triggerAutoAlpa"
-                            wire:confirm="Jalankan proses Auto-Alpa sekarang? Semua siswa yang belum hadir hari ini akan ditandai Alpa."
+                            wire:confirm="Jalankan proses Auto-Alpa sekarang? Semua murid yang belum hadir hari ini akan ditandai Alpa."
                             class="inline-flex items-center gap-1.5 px-3.5 py-2 bg-gradient-to-r from-[#1E88E5] to-[#42A5F5] hover:from-[#1976D2] hover:to-[#1E88E5] text-white text-[11px] font-bold rounded-2xl shadow-md shadow-sky-500/20 active:scale-95 transition cursor-pointer">
                         <i data-lucide="clock-alert" class="w-3.5 h-3.5"></i>
                         <span>Tutup Absensi (Auto-Alpa)</span>
@@ -51,13 +51,13 @@
         <h3 class="text-sm font-black text-slate-850 tracking-tight">Master Data Sekolah</h3>
 
         <div class="grid grid-cols-2 gap-3.5">
-            <!-- 1. Siswa (Rose Circle) -->
+            <!-- 1. Murid (Rose Circle) -->
             <a href="{{ route('admin.students') }}" class="soft-card-interactive p-4 flex flex-col items-center text-center group">
                 <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-rose-500 to-pink-400 text-white flex items-center justify-center shadow-md shadow-rose-500/25 mb-2.5 transition group-hover:scale-105">
                     <i data-lucide="users" class="w-7 h-7 stroke-[2.5]"></i>
                 </div>
-                <h4 class="text-xs font-bold text-slate-850">Data Siswa</h4>
-                <p class="text-[10px] text-rose-500 font-extrabold mt-0.5">{{ $totalStudents }} Siswa</p>
+                <h4 class="text-xs font-bold text-slate-850">Data Murid</h4>
+                <p class="text-[10px] text-rose-500 font-extrabold mt-0.5">{{ $totalStudents }} Murid</p>
             </a>
 
             <!-- 2. Guru (Cyan Circle) -->

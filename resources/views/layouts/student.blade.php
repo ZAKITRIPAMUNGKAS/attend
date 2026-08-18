@@ -89,7 +89,7 @@
                     <span class="font-medium text-white">{{ $student->name ?? $user->name }}</span>
                 </div>
                 <span class="bg-white/20 backdrop-blur-md text-white font-bold text-[10px] px-2.5 py-0.5 rounded-full border border-white/25 uppercase">
-                    {{ $student->schoolClass->name ?? 'Kelas Siswa' }}
+                    {{ $student->schoolClass->name ?? 'Kelas Murid' }}
                 </span>
             </div>
 
