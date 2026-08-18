@@ -73,7 +73,17 @@ class PermissionApproval extends Component
 
     public function render()
     {
+        $teacher = Auth::user()->teacher;
+        $classIds = $teacher ? $teacher->homeroomClasses->pluck('id')->toArray() : [];
+
         $query = PermissionRequest::with(['student.schoolClass', 'approver'])
+            ->whereHas('student', function ($q) use ($classIds) {
+                if (!empty($classIds)) {
+                    $q->whereIn('class_id', $classIds);
+                } else {
+                    $q->whereRaw('1 = 0');
+                }
+            })
             ->orderBy('date', 'desc');
 
         if ($this->filterStatus !== 'all') {
@@ -82,7 +92,15 @@ class PermissionApproval extends Component
 
         $requests = $query->get();
 
-        $pendingCount = PermissionRequest::where('status', 'menunggu')->count();
+        $pendingCount = PermissionRequest::where('status', 'menunggu')
+            ->whereHas('student', function ($q) use ($classIds) {
+                if (!empty($classIds)) {
+                    $q->whereIn('class_id', $classIds);
+                } else {
+                    $q->whereRaw('1 = 0');
+                }
+            })
+            ->count();
 
         return view('livewire.teacher.permission-approval', compact('requests', 'pendingCount'));
     }

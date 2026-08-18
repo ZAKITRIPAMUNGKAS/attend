@@ -17,24 +17,25 @@ class Dashboard extends Component
     public function mount()
     {
         $teacher = Auth::user()->teacher;
-        $firstClass = SchoolClass::where('homeroom_teacher_id', $teacher->id)->first() ?? SchoolClass::first();
-        if ($firstClass) {
-            $this->selectedClassId = $firstClass->id;
+        $myClass = $teacher ? $teacher->homeroomClasses()->first() : null;
+        if ($myClass) {
+            $this->selectedClassId = $myClass->id;
         }
     }
 
     public function render(AttendanceService $attendanceService)
     {
         $teacher = Auth::user()->teacher;
-        $classes = SchoolClass::all();
+        $myClass = $teacher ? $teacher->homeroomClasses()->first() : null;
 
         $stats = null;
-        if ($this->selectedClassId) {
-            $stats = $attendanceService->getClassStats($this->selectedClassId);
+        if ($myClass) {
+            $this->selectedClassId = $myClass->id;
+            $stats = $attendanceService->getClassStats($myClass->id);
         }
 
         $today = Carbon::today()->toDateString();
 
-        return view('livewire.teacher.dashboard', compact('teacher', 'classes', 'stats', 'today'));
+        return view('livewire.teacher.dashboard', compact('teacher', 'myClass', 'stats', 'today'));
     }
 }

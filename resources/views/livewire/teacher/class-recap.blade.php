@@ -27,13 +27,11 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
             <div>
-                <label class="block text-[11px] font-bold text-slate-400 uppercase mb-1">Pilih Kelas</label>
-                <select wire:model.live="selectedClassId" 
-                        class="w-full px-3.5 py-2.5 bg-[#F4F8FC] border border-sky-100 rounded-2xl text-xs font-bold text-slate-800 focus:outline-none focus:ring-2 focus:ring-sky-500 cursor-pointer">
-                    @foreach($classes as $c)
-                        <option value="{{ $c->id }}">{{ $c->name }} (Tingkat {{ $c->grade }})</option>
-                    @endforeach
-                </select>
+                <label class="block text-[11px] font-bold text-slate-400 uppercase mb-1">Rombongan Belajar</label>
+                <div class="w-full px-3.5 py-2.5 bg-[#F4F8FC] border border-sky-100 rounded-2xl text-xs font-bold text-slate-800 flex items-center gap-2">
+                    <i data-lucide="shield-check" class="w-4 h-4 text-sky-600"></i>
+                    <span>{{ $schoolClass ? "Kelas {$schoolClass->name} (Tingkat {$schoolClass->grade})" : 'Belum Ditugaskan' }}</span>
+                </div>
             </div>
 
             <div>

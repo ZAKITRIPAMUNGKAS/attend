@@ -1,35 +1,34 @@
 <div class="space-y-6">
 
-    <!-- 1. Hero Class Selector & Summary Card (Matching Reference UI Banner) -->
+    <!-- 1. Hero Class Card (Assigned Homeroom Class) -->
     <div class="soft-card p-5 relative overflow-hidden bg-white">
         <div class="flex items-start justify-between">
             <div class="space-y-2 z-10 max-w-[65%]">
                 <span class="text-[10px] font-extrabold uppercase tracking-wider text-sky-600 bg-sky-50 px-2.5 py-0.5 rounded-full border border-sky-100">
-                    Kelas Yang Dipantau
+                    Wali Kelas Pengampu
                 </span>
                 
                 @if($stats)
                     <h2 class="text-lg font-black text-slate-850 leading-snug">
-                        {{ $stats['class']->name }}
+                        Kelas {{ $stats['class']->name }}
                     </h2>
                     <p class="text-xs text-slate-500 font-medium">
                         Total Murid: <strong class="text-slate-800">{{ $stats['total_students'] }} Orang</strong> • Sudah Pulang: <strong class="text-blue-600 font-bold">{{ $stats['sudah_pulang'] }}</strong>
                     </p>
+                    <div class="pt-1">
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-[#F4F8FC] border border-sky-100 rounded-xl text-xs font-bold text-sky-700">
+                            <i data-lucide="shield-check" class="w-3.5 h-3.5 text-sky-600"></i>
+                            <span>Tingkat {{ $stats['class']->grade }} • Rombel Resmi</span>
+                        </span>
+                    </div>
                 @else
-                    <h2 class="text-lg font-black text-slate-850 leading-snug">
-                        Pilih Kelas
+                    <h2 class="text-base font-black text-slate-850 leading-snug">
+                        Belum Ditugaskan
                     </h2>
+                    <p class="text-xs text-slate-400">
+                        Anda belum ditugaskan sebagai Wali Kelas. Hubungi Administrator untuk penugasan rombel.
+                    </p>
                 @endif
-
-                <!-- Class Dropdown Selector -->
-                <div class="pt-1">
-                    <select wire:model.live="selectedClassId" 
-                            class="w-full px-3 py-2 bg-[#F4F8FC] border border-sky-100 rounded-xl text-xs font-bold text-slate-700 focus:outline-none focus:ring-2 focus:ring-sky-500 cursor-pointer">
-                        @foreach($classes as $c)
-                            <option value="{{ $c->id }}">{{ $c->name }} (Tingkat {{ $c->grade }})</option>
-                        @endforeach
-                    </select>
-                </div>
             </div>
 
             <!-- Visual Icon Right Badge -->

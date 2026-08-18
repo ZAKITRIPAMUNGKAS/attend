@@ -21,9 +21,9 @@ class ClassRecap extends Component
     public function mount()
     {
         $teacher = Auth::user()->teacher;
-        $firstClass = SchoolClass::where('homeroom_teacher_id', $teacher->id)->first() ?? SchoolClass::first();
-        if ($firstClass) {
-            $this->selectedClassId = $firstClass->id;
+        $myClass = $teacher ? $teacher->homeroomClasses()->first() : null;
+        if ($myClass) {
+            $this->selectedClassId = $myClass->id;
         }
 
         $this->selectedDate = Carbon::today()->toDateString();
@@ -43,10 +43,10 @@ class ClassRecap extends Component
     public function render()
     {
         $teacher = Auth::user()->teacher;
-        $classes = SchoolClass::all();
+        $schoolClass = $teacher ? $teacher->homeroomClasses()->first() : null;
+        $this->selectedClassId = $schoolClass?->id;
 
-        $schoolClass = $this->selectedClassId ? SchoolClass::find($this->selectedClassId) : null;
-        $students = $this->selectedClassId ? Student::where('class_id', $this->selectedClassId)->where('status', 'aktif')->get() : collect();
+        $students = $schoolClass ? Student::where('class_id', $schoolClass->id)->where('status', 'aktif')->orderBy('name')->get() : collect();
 
         // Calculate Weekly Matrix (Senin s.d. Jumat)
         $startOfWeek = Carbon::parse($this->selectedWeek)->startOfWeek(); // Monday

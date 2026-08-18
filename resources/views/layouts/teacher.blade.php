@@ -2,7 +2,16 @@
     $user = auth()->user();
     $teacher = $user->teacher;
     $currentRoute = request()->route()->getName();
-    $pendingPermCount = \App\Models\PermissionRequest::where('status', 'menunggu')->count();
+    $classIds = $teacher ? $teacher->homeroomClasses->pluck('id')->toArray() : [];
+    $pendingPermCount = \App\Models\PermissionRequest::where('status', 'menunggu')
+        ->whereHas('student', function ($q) use ($classIds) {
+            if (!empty($classIds)) {
+                $q->whereIn('class_id', $classIds);
+            } else {
+                $q->whereRaw('1 = 0');
+            }
+        })
+        ->count();
 @endphp
 <!DOCTYPE html>
 <html lang="id" class="min-h-screen bg-[#EBF2F7] sm:bg-[#DDE8F0]">

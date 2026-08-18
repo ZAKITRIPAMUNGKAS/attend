@@ -10,33 +10,55 @@
             <p class="text-[11px] text-slate-400">Tampilkan di proyektor/layar lobi, atau cetak sebagai poster kelas.</p>
         </div>
 
-        <!-- 2 Mode Tabs: QR General vs QR Per-Kelas -->
-        <div class="grid grid-cols-2 gap-2 p-1 bg-[#F4F8FC] rounded-2xl border border-sky-100">
-            <button type="button" 
-                    wire:click="setMode('general')" 
-                    class="py-2.5 px-3 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer {{ $mode === 'general' ? 'bg-white text-[#1E88E5] shadow-xs border border-sky-100' : 'text-slate-500 hover:text-slate-800' }}">
-                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
-                <span>QR General (Sekolah)</span>
-            </button>
-
-            <button type="button" 
-                    wire:click="setMode('class')" 
-                    class="py-2.5 px-3 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer {{ $mode === 'class' ? 'bg-white text-[#1E88E5] shadow-xs border border-sky-100' : 'text-slate-500 hover:text-slate-800' }}">
-                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10"/><path d="M6 10h10"/></svg>
-                <span>QR Rombel Kelas</span>
-            </button>
-        </div>
-
-        <!-- Class Selector if in Class Mode -->
-        @if($mode === 'class')
-            <div class="pt-1">
-                <label class="block text-[10px] font-bold text-slate-500 uppercase mb-1">Pilih Kelas yang Ingin Ditampilkan:</label>
-                <select wire:model.live="selectedClassId" class="w-full px-3 py-2 bg-[#F4F8FC] border border-sky-100 rounded-xl text-xs font-bold text-slate-800 focus:outline-none focus:ring-2 focus:ring-sky-500 cursor-pointer">
-                    @foreach($classes as $c)
-                        <option value="{{ $c->id }}">Kelas {{ $c->name }} (Tingkat {{ $c->grade }}) — Wali: {{ $c->homeroomTeacher?->name ?? 'Belum ada' }}</option>
-                    @endforeach
-                </select>
+        @if($isTeacher)
+            <!-- Info Rombel Khusus Guru -->
+            <div class="p-3 bg-[#F4F8FC] rounded-2xl border border-sky-100 flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                    <div class="w-8 h-8 rounded-xl bg-sky-100 text-[#1E88E5] flex items-center justify-center font-black shrink-0">
+                        <i data-lucide="shield-check" class="w-4 h-4"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs font-black text-slate-850">
+                            {{ $selectedClass ? "Rombel Kelas {$selectedClass->name} (Tingkat {$selectedClass->grade})" : "Belum Ditugaskan Kelas" }}
+                        </p>
+                        <p class="text-[10px] text-slate-400 font-semibold">
+                            Wali Kelas: {{ $teacher->name ?? 'Guru' }}
+                        </p>
+                    </div>
+                </div>
+                <span class="text-[9px] font-bold px-2 py-0.5 bg-sky-100 text-sky-700 rounded-full">
+                    QR Khusus Kelas
+                </span>
             </div>
+        @else
+            <!-- 2 Mode Tabs: QR General vs QR Per-Kelas (Admin Only) -->
+            <div class="grid grid-cols-2 gap-2 p-1 bg-[#F4F8FC] rounded-2xl border border-sky-100">
+                <button type="button" 
+                        wire:click="setMode('general')" 
+                        class="py-2.5 px-3 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer {{ $mode === 'general' ? 'bg-white text-[#1E88E5] shadow-xs border border-sky-100' : 'text-slate-500 hover:text-slate-800' }}">
+                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                    <span>QR General (Sekolah)</span>
+                </button>
+
+                <button type="button" 
+                        wire:click="setMode('class')" 
+                        class="py-2.5 px-3 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer {{ $mode === 'class' ? 'bg-white text-[#1E88E5] shadow-xs border border-sky-100' : 'text-slate-500 hover:text-slate-800' }}">
+                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10"/><path d="M6 10h10"/></svg>
+                    <span>QR Rombel Kelas</span>
+                </button>
+            </div>
+
+            <!-- Class Selector if in Class Mode -->
+            @if($mode === 'class')
+                <div class="pt-1">
+                    <label class="block text-[10px] font-bold text-slate-500 uppercase mb-1">Pilih Kelas yang Ingin Ditampilkan:</label>
+                    <select wire:model.live="selectedClassId" class="w-full px-3 py-2 bg-[#F4F8FC] border border-sky-100 rounded-xl text-xs font-bold text-slate-800 focus:outline-none focus:ring-2 focus:ring-sky-500 cursor-pointer">
+                        @foreach($classes as $c)
+                            <option value="{{ $c->id }}">Kelas {{ $c->name }} (Tingkat {{ $c->grade }}) — Wali: {{ $c->homeroomTeacher?->name ?? 'Belum ada' }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            @endif
         @endif
     </div>
 

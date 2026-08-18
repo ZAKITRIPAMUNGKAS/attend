@@ -85,6 +85,7 @@ class AttendanceTest extends TestCase
         $responseTeacher = $this->actingAs($teacherUser)->get('/guru/share-qr');
         $responseTeacher->assertStatus(200);
         $responseTeacher->assertSee('Bagikan QR Presensi');
+        $responseTeacher->assertSee('QR Khusus Kelas');
     }
 
     public function test_student_can_scan_general_qr_code_for_attendance()
