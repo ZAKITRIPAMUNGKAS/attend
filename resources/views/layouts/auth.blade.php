@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#259BE5">
-    <title>{{ $title ?? 'Login — SmartAbsensi SMA IT' }}</title>
+    <title>{{ $title ?? 'Login — SmartAbsensi SMA IT Insan Kamil' }}</title>
     
     <link rel="icon" type="image/png" href="{{ asset('logo.png') }}">
     <link rel="apple-touch-icon" href="{{ asset('logo.png') }}">

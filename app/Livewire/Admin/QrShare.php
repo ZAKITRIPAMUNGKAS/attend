@@ -44,7 +44,7 @@ class QrShare extends Component
         if ($this->mode === 'general') {
             $qrPayload = 'SMAIT_GENERAL_ATTENDANCE_QR';
             $title = 'QR Presensi General Sekolah';
-            $subtitle = 'Dapat di-scan oleh seluruh siswa aktif SMA IT';
+            $subtitle = 'Dapat di-scan oleh seluruh siswa aktif SMA IT Insan Kamil';
         } else {
             $qrPayload = 'SMAIT_CLASS_QR_' . ($selectedClass ? $selectedClass->id : '0');
             $title = 'QR Presensi Rombel ' . ($selectedClass ? $selectedClass->name : '-');

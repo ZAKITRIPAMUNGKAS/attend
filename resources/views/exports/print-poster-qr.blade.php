@@ -388,10 +388,10 @@
         <!-- Bottom Monobank-style Footer with School Logo -->
         <div class="poster-footer">
             <div class="school-logo-emblem">
-                <img src="{{ asset('logo.png') }}" alt="Logo SMA IT">
+                <img src="{{ asset('logo.png') }}" alt="Logo SMA IT Insan Kamil">
             </div>
             <div class="brand-title">smartabsensi</div>
-            <div class="brand-sub">SMA ISLAM TERPADU</div>
+            <div class="brand-sub">SMA IT INSAN KAMIL</div>
             <div class="brand-info">
                 SISTEM PRESENSI DIGITAL RESMI<br>
                 Tahun Ajaran {{ $activeYear->name ?? '2026/2027' }} &bull; {{ $currentDate }}

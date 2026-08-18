@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Laporan Absensi SMA IT</title>
+    <title>Laporan Absensi SMA IT Insan Kamil</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -71,7 +71,7 @@
 <body>
 
     <div class="header">
-        <h1>SMA ISLAM TERPADU (SMA IT)</h1>
+        <h1>SMA IT INSAN KAMIL</h1>
         <p>Sistem Informasi & Manajemen Kehadiran Siswa Terpadu</p>
         <p>Laporan Resmi Kehadiran Siswa — Tanggal: <strong>{{ \Carbon\Carbon::parse($date)->translatedFormat('d F Y') }}</strong></p>
         @if($schoolClass)

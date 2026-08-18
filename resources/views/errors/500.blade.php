@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
@@ -49,6 +49,6 @@
             Kembali ke Beranda
         </a>
     </div>
-    <div class="credit">SmartAbsensi SMAIT · <a href="https://tepegrafi.id" target="_blank" rel="noopener">Developed by gemala.dev</a></div>
+    <div class="credit">SmartAbsensi SMA IT Insan Kamil · <a href="https://tepegrafi.id" target="_blank" rel="noopener">Developed by gemala.dev</a></div>
 </body>
 </html>

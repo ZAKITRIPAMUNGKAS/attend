@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cetak Kartu QR Siswa — SMA Islam Terpadu</title>
+    <title>Cetak Kartu QR Siswa — SMA IT Insan Kamil</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet">
@@ -92,7 +92,7 @@
                                 <img src="{{ asset('logo.png') }}" alt="Logo SMA IT" class="w-full h-full object-contain" />
                             </div>
                             <div>
-                                <h3 class="text-[11px] font-black tracking-wider uppercase leading-none">SMA ISLAM TERPADU</h3>
+                                <h3 class="text-[11px] font-black tracking-wider uppercase leading-none">SMA IT INSAN KAMIL</h3>
                                 <p class="text-[8px] text-sky-100 font-semibold tracking-wider leading-tight mt-0.5">KARTU PRESENSI DIGITAL SISWA</p>
                             </div>
                         </div>

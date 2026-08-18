@@ -68,7 +68,7 @@
                             </span>
                         </h1>
                         <p class="text-[11px] text-sky-100 font-medium leading-none mt-0.5">
-                            SMA ISLAM TERPADU
+                            SMA IT INSAN KAMIL
                         </p>
                     </div>
                 </div>

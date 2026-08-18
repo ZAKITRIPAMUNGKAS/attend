@@ -253,7 +253,7 @@ class ReportExportController extends Controller
             $selectedClass = null;
             $qrPayload = 'SMAIT_GENERAL_ATTENDANCE_QR';
             $title = 'QR Presensi Siswa';
-            $subtitle = 'SMA Islam Terpadu';
+            $subtitle = 'SMA IT Insan Kamil';
         }
 
         $now = \Carbon\Carbon::now();

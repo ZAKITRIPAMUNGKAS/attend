@@ -36,9 +36,9 @@
         <!-- Card Top Bar with Logo & Branding -->
         <div class="bg-gradient-to-r from-[#1E88E5] to-[#42A5F5] pt-6 pb-12 px-5 text-white text-center relative">
             <div class="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-white p-1.5 shadow-md shadow-sky-900/15 mb-2">
-                <img src="{{ asset('logo.png') }}" alt="Logo SMA IT" class="w-full h-full object-contain" />
+                <img src="{{ asset('logo.png') }}" alt="Logo SMA IT Insan Kamil" class="w-full h-full object-contain" />
             </div>
-            <h3 class="text-sm font-black tracking-wide uppercase">SMA ISLAM TERPADU</h3>
+            <h3 class="text-sm font-black tracking-wide uppercase">SMA IT INSAN KAMIL</h3>
             <p class="text-[10px] text-sky-100 font-bold tracking-wider">KARTU DIGITAL IDENTITAS SISWA</p>
             <div class="absolute top-4 right-4 text-[9px] bg-white/20 backdrop-blur-md px-2.5 py-0.5 rounded-full font-bold border border-white/25">
                 {{ $student->academicYear->name ?? '2026/2027' }}
