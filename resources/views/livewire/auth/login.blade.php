@@ -92,34 +92,4 @@
         </div>
     </form>
 
-    <!-- Demo Accounts Quick Click Pills with Clean SVG Icons -->
-    <div class="mt-6 pt-5 border-t border-slate-100">
-        <p class="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 text-center mb-2.5">Akun Contoh (Klik untuk Isi Otomatis):</p>
-        <div class="grid grid-cols-3 gap-2 text-center">
-            <!-- Admin -->
-            <button type="button" 
-                    wire:click="$set('identifier', 'admin'); $set('password', 'password');" 
-                    class="py-2.5 px-2 rounded-2xl bg-slate-100/90 hover:bg-slate-200 text-slate-700 text-xs font-bold transition active:scale-95 cursor-pointer flex items-center justify-center gap-1.5 border border-slate-200/70 shadow-2xs">
-                <svg class="w-3.5 h-3.5 text-slate-600 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                <span>Admin</span>
-            </button>
-
-            <!-- Guru / Wali -->
-            <button type="button" 
-                    wire:click="$set('identifier', 'guru_abdullah'); $set('password', 'password');" 
-                    class="py-2.5 px-2 rounded-2xl bg-blue-50 hover:bg-blue-100 text-blue-700 text-xs font-bold transition active:scale-95 cursor-pointer flex items-center justify-center gap-1.5 border border-blue-200/70 shadow-2xs">
-                <svg class="w-3.5 h-3.5 text-blue-600 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-                <span>Guru</span>
-            </button>
-
-            <!-- Murid Real -->
-            <button type="button" 
-                    wire:click="$set('identifier', '26271001'); $set('password', '02022010');" 
-                    class="py-2.5 px-2 rounded-2xl bg-sky-50 hover:bg-sky-100 text-[#1E88E5] text-xs font-bold transition active:scale-95 cursor-pointer flex items-center justify-center gap-1.5 border border-sky-200/70 shadow-2xs">
-                <svg class="w-3.5 h-3.5 text-[#1E88E5] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                <span>Murid</span>
-            </button>
-        </div>
-    </div>
-
 </div>
