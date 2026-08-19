@@ -20,7 +20,7 @@
                 </span>
                 
                 <h2 class="text-base font-black text-slate-850 leading-snug pt-1">
-                    SmartAbsensi Overview
+                    SmartPresensi Overview
                 </h2>
                 <p class="text-xs text-slate-500 font-medium">
                     Tahun: <strong class="text-slate-800">{{ $activeYear->name ?? '2026/2027' }}</strong> • On-Time: <strong class="font-mono text-[#1E88E5]">{{ substr($settings->on_time_until, 0, 5) }}</strong>

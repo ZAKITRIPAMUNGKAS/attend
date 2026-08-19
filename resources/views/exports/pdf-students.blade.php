@@ -173,7 +173,7 @@
                 Total: <strong>{{ $totalStudents }} Murid</strong> &bull; Laki-laki: <strong>{{ $countMale }}</strong> &bull; Perempuan: <strong>{{ $countFemale }}</strong>
             </td>
             <td style="width: 50%; text-align: right; color: #64748b;">
-                Sistem SmartAbsensi &bull; https://smart.tepegrafi.id
+                Sistem SmartPresensi &bull; https://smart.tepegrafi.id
             </td>
         </tr>
     </table>
@@ -231,7 +231,7 @@
 
     <!-- ── PRINT FOOTER ────────────────────────────────────────────── -->
     <div class="print-footer">
-        <span style="float: left;">SmartAbsensi SMA IT Insan Kamil Karanganyar</span>
+        <span style="float: left;">SmartPresensi SMA IT Insan Kamil Karanganyar</span>
         <span style="float: right;">Halaman 1 dari 1</span>
         <div style="clear: both;"></div>
     </div>

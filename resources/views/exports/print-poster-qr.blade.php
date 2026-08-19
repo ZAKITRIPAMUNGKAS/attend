@@ -390,7 +390,7 @@
             <div class="school-logo-emblem">
                 <img src="{{ asset('logo.png') }}" alt="Logo SMA IT Insan Kamil">
             </div>
-            <div class="brand-title">smartabsensi</div>
+            <div class="brand-title">smartpresensi</div>
             <div class="brand-sub">SMA IT INSAN KAMIL</div>
             <div class="brand-info">
                 SISTEM PRESENSI DIGITAL RESMI<br>

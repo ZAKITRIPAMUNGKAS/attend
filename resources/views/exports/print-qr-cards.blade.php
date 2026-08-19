@@ -143,7 +143,7 @@
                                 {!! \SimpleSoftwareIO\QrCode\Facades\QrCode::size(92)->margin(0)->generate($s->qr_token) !!}
                             </div>
                             <span class="text-[7.5px] font-mono font-bold text-slate-400 mt-1 uppercase tracking-wider">
-                                SMARTABSENSI
+                                SMARTPRESENSI
                             </span>
                         </div>
                     </div>

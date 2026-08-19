@@ -8,14 +8,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#259BE5">
-    <title>{{ $title ?? 'Admin Panel — SmartAbsensi' }}</title>
+    <title>{{ $title ?? 'Admin Panel — SmartPresensi' }}</title>
     
     <link rel="icon" type="image/png" href="{{ asset('logo.png') }}">
     <link rel="manifest" href="/manifest.json">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="SmartAbsensi">
+    <meta name="apple-mobile-web-app-title" content="SmartPresensi">
     <link rel="apple-touch-icon" href="{{ asset('icons/icon-192x192.png') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -67,7 +67,7 @@
                     </div>
                     <div>
                         <h1 class="text-base font-black tracking-tight text-white flex items-center gap-1.5 leading-tight">
-                            SmartAbsensi
+                            SmartPresensi
                             <span class="text-[9px] bg-white/25 text-white px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">
                                 ADMIN
                             </span>

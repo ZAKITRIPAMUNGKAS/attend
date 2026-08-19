@@ -1,4 +1,4 @@
-const CACHE_NAME = 'smartabsensi-v1';
+const CACHE_NAME = 'smartpresensi-v1';
 const PRECACHE_ASSETS = [
     '/',
     '/login',

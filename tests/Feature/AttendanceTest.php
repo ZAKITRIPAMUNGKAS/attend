@@ -39,7 +39,7 @@ class AttendanceTest extends TestCase
     {
         $response = $this->get('/login');
         $response->assertStatus(200);
-        $response->assertSee('SmartAbsensi');
+        $response->assertSee('SmartPresensi');
     }
 
     public function test_student_dashboard_accessible_when_authenticated_as_student()
@@ -47,7 +47,7 @@ class AttendanceTest extends TestCase
         $studentUser = User::where('role', 'student')->first();
         $response = $this->actingAs($studentUser)->get('/siswa/dashboard');
         $response->assertStatus(200);
-        $response->assertSee('SmartAbsensi');
+        $response->assertSee('SmartPresensi');
     }
 
     public function test_teacher_dashboard_accessible_when_authenticated_as_teacher()

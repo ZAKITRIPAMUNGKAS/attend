@@ -8,7 +8,7 @@
         <div class="inline-flex items-center justify-center w-20 h-20 rounded-3xl bg-sky-50 border border-sky-100 p-2 shadow-sm mb-3">
             <img src="{{ asset('logo.png') }}" alt="Logo SMA IT Insan Kamil" class="w-full h-full object-contain" />
         </div>
-        <h2 class="text-2xl font-black text-slate-850 tracking-tight">SmartAbsensi</h2>
+        <h2 class="text-2xl font-black text-slate-850 tracking-tight">SmartPresensi</h2>
         <p class="text-[11px] font-extrabold text-[#1E88E5] mt-0.5 uppercase tracking-wider">SMA IT INSAN KAMIL</p>
         <p class="text-xs text-slate-400 mt-1">Sistem Absensi Murid & Manajemen Kehadiran</p>
     </div>

@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#259BE5">
-    <title>{{ $title ?? 'Login — SmartAbsensi SMA IT Insan Kamil' }}</title>
+    <title>{{ $title ?? 'Login — SmartPresensi SMA IT Insan Kamil' }}</title>
     
     <link rel="icon" type="image/png" href="{{ asset('logo.png') }}">
     <link rel="manifest" href="/manifest.json">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="SmartAbsensi">
+    <meta name="apple-mobile-web-app-title" content="SmartPresensi">
     <link rel="apple-touch-icon" href="{{ asset('icons/icon-192x192.png') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,7 +34,7 @@
                 <div class="flex items-center gap-3">
                     <img src="{{ asset('icons/icon-72x72.png') }}" class="w-9 h-9 rounded-xl shadow-xs shrink-0" alt="Logo">
                     <div>
-                        <p class="text-xs font-black text-slate-800">Pasang Aplikasi SmartAbsensi</p>
+                        <p class="text-xs font-black text-slate-800">Pasang Aplikasi SmartPresensi</p>
                         <p class="text-[10px] text-slate-500 font-medium">Akses langsung dari layar utama HP Anda</p>
                     </div>
                 </div>

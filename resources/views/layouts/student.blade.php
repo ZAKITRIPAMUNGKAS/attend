@@ -14,7 +14,7 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="SmartAbsensi">
+    <meta name="apple-mobile-web-app-title" content="SmartPresensi">
     <link rel="apple-touch-icon" href="{{ asset('icons/icon-192x192.png') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -58,7 +58,7 @@
             <div class="flex items-center gap-2.5">
                 <img src="{{ asset('icons/icon-72x72.png') }}" class="w-9 h-9 rounded-xl shadow-xs shrink-0" alt="Logo">
                 <div>
-                    <p class="text-xs font-black text-slate-800">Install SmartAbsensi</p>
+                    <p class="text-xs font-black text-slate-800">Install SmartPresensi</p>
                     <p class="text-[10px] text-slate-500 font-medium">Buka lebih cepat dari layar utama HP</p>
                 </div>
             </div>
@@ -88,7 +88,7 @@
                     </div>
                     <div>
                         <h1 class="text-base font-extrabold tracking-tight text-white flex items-center gap-1.5 leading-tight">
-                            SmartAbsensi
+                            SmartPresensi
                         </h1>
                         <p class="text-[11px] text-sky-100 font-medium leading-none mt-0.5">
                             SMA IT INSAN KAMIL

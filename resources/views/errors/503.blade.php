@@ -27,22 +27,23 @@
         .credit a:hover{color:#1E88E5}
     </style>
 </head>
-<body>
+<body class="selection:bg-sky-500 selection:text-white">
     <div class="card">
         <div class="glow"></div><div class="glow2"></div>
         <div class="logo-wrap"><img src="/logo.png" alt="Logo SMA IT"></div>
         <div class="icon-box">
-            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="1.8"><path d="M12 22C6.5 22 2 17.5 2 12S6.5 2 12 2s10 4.5 10 10"/><path d="M12 6v6l4 2"/><path d="m16 16 2 2 4-4"/></svg>
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.2">
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+            </svg>
         </div>
-        <div class="code">503</div>
+        <div class="badge">Pemeliharaan Sistem</div>
         <h1>Sedang Dalam Pemeliharaan</h1>
-        <div class="divider"></div>
-        <p>SmartAbsensi sedang dalam proses pemeliharaan dan peningkatan sistem. Kami akan kembali segera. Terima kasih atas kesabarannya!</p>
-        <a href="javascript:location.reload()" class="btn-primary">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+        <p>SmartPresensi sedang dalam proses pemeliharaan dan peningkatan sistem. Kami akan kembali segera. Terima kasih atas kesabarannya!</p>
+        <a href="/" class="btn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
             Coba Lagi
         </a>
     </div>
-    <div class="credit">SmartAbsensi SMA IT Insan Kamil · <a href="https://tepegrafi.id" target="_blank" rel="noopener">Developed by gemala.dev</a></div>
+    <div class="credit">SmartPresensi SMA IT Insan Kamil · <a href="https://tepegrafi.id" target="_blank" rel="noopener">Developed by gemala.dev</a></div>
 </body>
 </html>

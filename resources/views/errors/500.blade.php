@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#259BE5">
-    <title>500 — Terjadi Kesalahan Server · SmartAbsensi</title>
+    <title>500 — Terjadi Kesalahan Server · SmartPresensi</title>
     <link rel="icon" type="image/png" href="/logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <style>
@@ -49,6 +49,6 @@
             Kembali ke Beranda
         </a>
     </div>
-    <div class="credit">SmartAbsensi SMA IT Insan Kamil · <a href="https://tepegrafi.id" target="_blank" rel="noopener">Developed by gemala.dev</a></div>
+    <div class="credit">SmartPresensi SMA IT Insan Kamil · <a href="https://tepegrafi.id" target="_blank" rel="noopener">Developed by gemala.dev</a></div>
 </body>
 </html>
