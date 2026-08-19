@@ -85,4 +85,5 @@ Route::middleware(['auth', 'role:admin,teacher'])->group(function () {
     Route::get('/export/print-qr', [ReportExportController::class, 'printQrCards'])->name('export.print-qr');
     Route::get('/export/print-poster-qr', [ReportExportController::class, 'printPosterQr'])->name('export.print-poster-qr');
     Route::get('/export/students', [ReportExportController::class, 'exportStudents'])->name('export.students');
+    Route::get('/export/students-pdf', [ReportExportController::class, 'exportStudentsPdf'])->name('export.students-pdf');
 });

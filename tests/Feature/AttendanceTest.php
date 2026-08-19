@@ -231,5 +231,11 @@ class AttendanceTest extends TestCase
 
         $printPosterResponse = $this->actingAs($adminUser)->get('/export/print-poster-qr');
         $printPosterResponse->assertStatus(200);
+
+        $studentsCsvResponse = $this->actingAs($adminUser)->get('/export/students');
+        $studentsCsvResponse->assertStatus(200);
+
+        $studentsPdfResponse = $this->actingAs($adminUser)->get('/export/students-pdf');
+        $studentsPdfResponse->assertStatus(200);
     }
 }

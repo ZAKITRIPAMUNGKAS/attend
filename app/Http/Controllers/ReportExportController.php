@@ -85,6 +85,53 @@ class ReportExportController extends Controller
     }
 
     /**
+     * Export Master Data Siswa ke PDF Resmi (Lengkap Kop Surat, Metadata & Lembar Pengesahan)
+     */
+    public function exportStudentsPdf(Request $request)
+    {
+        $classId = $request->query('class_id');
+        $academicYear = AcademicYear::active() ?? AcademicYear::first();
+
+        $selectedClass = $classId ? SchoolClass::with('homeroomTeacher')->find($classId) : null;
+        $homeroomTeacher = $selectedClass?->homeroomTeacher;
+
+        $studentsQuery = Student::where('status', 'aktif')->with(['schoolClass', 'user']);
+        if ($classId) {
+            $studentsQuery->where('class_id', $classId);
+        }
+        $students = $studentsQuery->orderBy('class_id')->orderBy('name')->get();
+
+        $totalStudents = $students->count();
+        $countMale = $students->where('gender', 'L')->count();
+        $countFemale = $students->where('gender', 'P')->count();
+
+        // Base64 Logo for fast & fail-safe DomPDF rendering
+        $logoPath = public_path('logo.png');
+        $logoBase64 = file_exists($logoPath)
+            ? 'data:image/png;base64,' . base64_encode(file_get_contents($logoPath))
+            : '';
+
+        $schoolName = 'SMA IT Insan Kamil';
+
+        $pdf = Pdf::loadView('exports.pdf-students', compact(
+            'students',
+            'academicYear',
+            'selectedClass',
+            'homeroomTeacher',
+            'totalStudents',
+            'countMale',
+            'countFemale',
+            'logoBase64',
+            'schoolName'
+        ))->setPaper('a4', 'landscape');
+
+        $classNameSlug = $selectedClass ? '_' . str_replace(' ', '_', $selectedClass->name) : '_Semua_Kelas';
+        $filename = "Data_Induk_Siswa_SMAIT{$classNameSlug}_" . date('Ymd_His') . ".pdf";
+
+        return $pdf->stream($filename);
+    }
+
+    /**
      * Export Rekap Absensi ke format Excel / CSV
      */
     public function exportExcel(Request $request): StreamedResponse

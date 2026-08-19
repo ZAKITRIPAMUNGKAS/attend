@@ -37,10 +37,17 @@
             <div class="flex items-center gap-2 pt-1">
                 <button type="button" 
                         wire:click="showAllStudents" 
-                        class="flex-1 py-2 px-3 bg-[#F4F8FC] hover:bg-sky-50 text-[#1E88E5] border border-sky-100 font-bold text-xs rounded-xl flex items-center justify-center gap-1.5 transition cursor-pointer">
+                        class="flex-1 py-2 px-2.5 bg-[#F4F8FC] hover:bg-sky-50 text-[#1E88E5] border border-sky-100 font-bold text-xs rounded-xl flex items-center justify-center gap-1.5 transition cursor-pointer">
                     <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                    <span>Semua Murid (Global)</span>
+                    <span>Semua Murid</span>
                 </button>
+
+                <a href="{{ route('export.students-pdf') }}" 
+                   target="_blank" 
+                   class="py-2 px-3 bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs rounded-xl shadow-xs flex items-center gap-1.5 transition">
+                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/></svg>
+                    <span>PDF (Kop)</span>
+                </a>
 
                 <a href="{{ route('export.students') }}" 
                    target="_blank" 
@@ -75,17 +82,41 @@
                             </span>
                         </div>
 
-                        <!-- CTA Button: Open Class Student Roster -->
-                        <button type="button" 
-                                wire:click="selectClass({{ $c->id }})" 
-                                class="w-full py-2.5 bg-gradient-to-r from-[#1E88E5] to-[#42A5F5] hover:from-[#1976D2] hover:to-[#1E88E5] text-white font-bold text-xs rounded-xl shadow-md shadow-sky-500/20 flex items-center justify-center gap-1.5 transition active:scale-98 cursor-pointer">
-                            <span>Buka Data Murid {{ $c->name }}</span>
-                            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                        </button>
+                        <!-- Teacher Info -->
+                        <div class="flex items-center gap-2 text-xs text-slate-600 bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+                            <svg class="w-3.5 h-3.5 text-blue-600 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                            <span class="font-medium text-[11px] truncate">
+                                Wali: <strong>{{ $c->homeroomTeacher->name ?? 'Belum Ditentukan' }}</strong>
+                            </span>
+                        </div>
+
+                        <!-- Class Card Actions -->
+                        <div class="flex items-center gap-2 pt-1 border-t border-slate-100">
+                            <button type="button" 
+                                    wire:click="selectClass({{ $c->id }})" 
+                                    class="flex-1 py-2 px-3 bg-[#1E88E5] hover:bg-[#1976D2] text-white font-bold text-xs rounded-xl shadow-xs flex items-center justify-center gap-1.5 transition cursor-pointer">
+                                <span>Buka Rombel ({{ $c->students_count }})</span>
+                                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+                            </button>
+
+                            <a href="{{ route('export.students-pdf', ['class_id' => $c->id]) }}" 
+                               target="_blank" 
+                               title="Export PDF Rombel {{ $c->name }}" 
+                               class="p-2 bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 rounded-xl transition">
+                                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/></svg>
+                            </a>
+
+                            <a href="{{ route('export.students', ['class_id' => $c->id]) }}" 
+                               target="_blank" 
+                               title="Export Excel Rombel {{ $c->name }}" 
+                               class="p-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 rounded-xl transition">
+                                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M8 13h2"/><path d="M14 13h2"/><path d="M8 17h2"/><path d="M14 17h2"/></svg>
+                            </a>
+                        </div>
                     </div>
                 @empty
-                    <div class="soft-card p-8 text-center text-xs text-slate-400">
-                        Belum ada data rombongan belajar (kelas).
+                    <div class="soft-card p-6 text-center text-slate-400 bg-white">
+                        <p class="text-xs">Belum ada data kelas yang terdaftar.</p>
                     </div>
                 @endforelse
             </div>
@@ -119,13 +150,20 @@
             </div>
 
             <!-- Action Buttons for this class -->
-            <div class="grid grid-cols-3 gap-2 pt-1">
+            <div class="grid grid-cols-4 gap-1.5 pt-1">
                 <button type="button" 
                         wire:click="create" 
-                        class="py-2.5 px-2 bg-gradient-to-r from-[#1E88E5] to-[#42A5F5] hover:from-[#1976D2] hover:to-[#1E88E5] text-white font-bold text-xs rounded-xl shadow-md shadow-sky-500/20 flex items-center justify-center gap-1.5 transition active:scale-95 cursor-pointer">
+                        class="py-2.5 px-2 bg-gradient-to-r from-[#1E88E5] to-[#42A5F5] hover:from-[#1976D2] hover:to-[#1E88E5] text-white font-bold text-xs rounded-xl shadow-md shadow-sky-500/20 flex items-center justify-center gap-1 transition active:scale-95 cursor-pointer">
                     <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" x2="19" y1="8" y2="14"/><line x1="22" x2="16" y1="11" y2="11"/></svg>
                     <span>+ Murid</span>
                 </button>
+
+                <a href="{{ route('export.students-pdf', ['class_id' => $selectedClassId]) }}" 
+                   target="_blank" 
+                   class="py-2.5 px-2 bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs rounded-xl shadow-xs flex items-center justify-center gap-1 transition">
+                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/></svg>
+                    <span>PDF</span>
+                </a>
 
                 <a href="{{ route('export.students', ['class_id' => $selectedClassId]) }}" 
                    target="_blank" 
@@ -137,7 +175,7 @@
                 <!-- Cetak QR Kartu [LOCKED] -->
                 <div class="py-2.5 px-2 bg-slate-100 text-slate-400 font-bold text-xs rounded-xl border border-slate-200 flex flex-col items-center justify-center gap-0.5 cursor-not-allowed select-none relative">
                     <svg class="w-3.5 h-3.5 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                    <span>Cetak QR</span>
+                    <span>QR</span>
                     <span class="text-[8px] font-extrabold uppercase tracking-wider text-amber-700">Soon</span>
                 </div>
             </div>
