@@ -225,7 +225,7 @@
 
                         <div>
                             <label class="block text-[10px] font-bold text-slate-400 uppercase mb-1">Password {{ $teacherId ? '(Kosongkan jika tidak diubah)' : '' }}</label>
-                            <input type="password" wire:model="password" placeholder="{{ $teacherId ? '••••••••' : 'Default: password' }}" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-800" />
+                            <input type="password" wire:model="password" autocomplete="new-password" placeholder="{{ $teacherId ? '••••••••' : 'Default: password' }}" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-800" />
                         </div>
                     </div>
 

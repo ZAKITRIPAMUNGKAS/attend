@@ -1,4 +1,4 @@
-const CACHE_NAME = 'smartpresensi-v1';
+const CACHE_NAME = 'smartpresensi-v2';
 const PRECACHE_ASSETS = [
     '/',
     '/login',
@@ -36,13 +36,24 @@ self.addEventListener('activate', (event) => {
     );
 });
 
-// Fetch Event (Network First for Web Pages & Livewire, Cache Fallback for Assets)
+// Fetch Event
 self.addEventListener('fetch', (event) => {
     const request = event.request;
+    
+    // 1. Only process http and https requests (ignore chrome-extension, blob, data, etc.)
+    if (!request.url.startsWith('http://') && !request.url.startsWith('https://')) {
+        return;
+    }
+
+    // 2. Skip non-GET requests (POST, PUT, DELETE)
+    if (request.method !== 'GET') {
+        return;
+    }
+
     const url = new URL(request.url);
 
-    // Skip non-GET requests and Livewire dynamic update POSTs
-    if (request.method !== 'GET') {
+    // 3. Ignore Livewire dynamic ajax endpoints completely
+    if (url.pathname.includes('livewire') || url.pathname.includes('livewire-')) {
         return;
     }
 
@@ -61,7 +72,7 @@ self.addEventListener('fetch', (event) => {
         event.respondWith(
             caches.match(request).then((cachedResponse) => {
                 const fetchPromise = fetch(request).then((networkResponse) => {
-                    if (networkResponse && networkResponse.status === 200) {
+                    if (networkResponse && networkResponse.status === 200 && networkResponse.type === 'basic') {
                         const responseToCache = networkResponse.clone();
                         caches.open(CACHE_NAME).then((cache) => {
                             cache.put(request, responseToCache);
