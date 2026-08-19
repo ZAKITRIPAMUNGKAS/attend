@@ -66,36 +66,58 @@ class Teachers extends Component
 
     public function save()
     {
+        $teacher = $this->teacherId ? Teacher::with('user')->findOrFail($this->teacherId) : null;
+        $userId = $teacher?->user_id;
+
         $this->validate([
             'name' => 'required|string|max:255',
-            'username' => 'required|string|max:50',
-            'email' => 'nullable|email',
+            'username' => [
+                'required',
+                'string',
+                'max:50',
+                \Illuminate\Validation\Rule::unique('users', 'username')->ignore($userId),
+            ],
+            'email' => [
+                'nullable',
+                'email',
+                \Illuminate\Validation\Rule::unique('users', 'email')->ignore($userId),
+            ],
             'homeroom_class_id' => 'nullable|exists:classes,id',
+            'password' => 'nullable|string|min:4',
         ]);
 
-        if ($this->teacherId) {
-            $teacher = Teacher::findOrFail($this->teacherId);
+        if ($this->teacherId && $teacher) {
             $teacher->update([
                 'name' => $this->name,
-                'nip' => $this->nip,
-                'phone' => $this->phone,
-                'gender' => $this->gender,
+                'nip' => $this->nip ?: null,
+                'phone' => $this->phone ?: null,
+                'gender' => $this->gender ?: 'L',
             ]);
 
             $userData = [
                 'name' => $this->name,
                 'username' => $this->username,
-                'email' => $this->email ?: ($this->username . '@guru.smait.sch.id'),
-                'phone' => $this->phone,
+                'email' => !empty($this->email) ? $this->email : ($teacher->user?->email ?: null),
+                'phone' => $this->phone ?: null,
             ];
             if (!empty($this->password)) {
                 $userData['password'] = Hash::make($this->password);
+                $userData['is_default_password'] = false;
             }
-            $teacher->user->update($userData);
+
+            if ($teacher->user) {
+                $teacher->user->update($userData);
+            } else {
+                $user = User::create(array_merge($userData, [
+                    'password' => !empty($this->password) ? Hash::make($this->password) : Hash::make('password'),
+                    'role' => 'teacher',
+                ]));
+                $teacher->update(['user_id' => $user->id]);
+            }
 
             // Update Homeroom Assignment
             SchoolClass::where('homeroom_teacher_id', $teacher->id)->update(['homeroom_teacher_id' => null]);
-            if ($this->homeroom_class_id) {
+            if (!empty($this->homeroom_class_id)) {
                 SchoolClass::where('id', $this->homeroom_class_id)->update(['homeroom_teacher_id' => $teacher->id]);
             }
 
@@ -104,25 +126,25 @@ class Teachers extends Component
             $user = User::create([
                 'name' => $this->name,
                 'username' => $this->username,
-                'email' => $this->email ?: ($this->username . '@guru.smait.sch.id'),
-                'password' => Hash::make($this->password ?: 'password'),
+                'email' => !empty($this->email) ? $this->email : null,
+                'password' => Hash::make(!empty($this->password) ? $this->password : 'password'),
                 'role' => 'teacher',
-                'phone' => $this->phone,
+                'phone' => $this->phone ?: null,
             ]);
 
-            $teacher = Teacher::create([
+            $newTeacher = Teacher::create([
                 'user_id' => $user->id,
-                'nip' => $this->nip,
+                'nip' => $this->nip ?: null,
                 'name' => $this->name,
-                'phone' => $this->phone,
-                'gender' => $this->gender,
+                'phone' => $this->phone ?: null,
+                'gender' => $this->gender ?: 'L',
             ]);
 
-            if ($this->homeroom_class_id) {
-                SchoolClass::where('id', $this->homeroom_class_id)->update(['homeroom_teacher_id' => $teacher->id]);
+            if (!empty($this->homeroom_class_id)) {
+                SchoolClass::where('id', $this->homeroom_class_id)->update(['homeroom_teacher_id' => $newTeacher->id]);
             }
 
-            $this->successMessage = "Guru {$teacher->name} berhasil ditambahkan.";
+            $this->successMessage = "Guru {$newTeacher->name} berhasil ditambahkan.";
         }
 
         $this->showModal = false;

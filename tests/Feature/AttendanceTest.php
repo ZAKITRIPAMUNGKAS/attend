@@ -238,4 +238,24 @@ class AttendanceTest extends TestCase
         $studentsPdfResponse = $this->actingAs($adminUser)->get('/export/students-pdf');
         $studentsPdfResponse->assertStatus(200);
     }
+
+    public function test_admin_can_edit_teacher_and_update_password()
+    {
+        $adminUser = User::where('role', 'admin')->first();
+        $teacher = Teacher::with('user')->first();
+
+        $this->assertNotNull($teacher);
+
+        \Livewire\Livewire::actingAs($adminUser)
+            ->test(\App\Livewire\Admin\Teachers::class)
+            ->call('edit', $teacher->id)
+            ->set('name', $teacher->name . ' Updated')
+            ->set('password', '1234567')
+            ->call('save')
+            ->assertHasNoErrors();
+
+        $teacher->refresh();
+        $this->assertEquals($teacher->name, $teacher->user->name);
+        $this->assertTrue(Hash::check('1234567', $teacher->user->password));
+    }
 }
