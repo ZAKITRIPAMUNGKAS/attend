@@ -7,7 +7,12 @@
     <title>{{ $title ?? 'Login — SmartAbsensi SMA IT Insan Kamil' }}</title>
     
     <link rel="icon" type="image/png" href="{{ asset('logo.png') }}">
-    <link rel="apple-touch-icon" href="{{ asset('logo.png') }}">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="SmartAbsensi">
+    <link rel="apple-touch-icon" href="{{ asset('icons/icon-192x192.png') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -23,6 +28,25 @@
 <body class="h-full antialiased text-slate-850 flex items-center justify-center p-4 min-h-screen">
 
     <div class="w-full max-w-md my-auto">
+        <!-- PWA Install Banner (appears when installable on mobile) -->
+        <div id="pwa-install-banner" class="hidden mb-4">
+            <div class="bg-white/95 backdrop-blur-md p-3.5 rounded-2xl shadow-xl border border-sky-200 flex items-center justify-between gap-3">
+                <div class="flex items-center gap-3">
+                    <img src="{{ asset('icons/icon-72x72.png') }}" class="w-9 h-9 rounded-xl shadow-xs shrink-0" alt="Logo">
+                    <div>
+                        <p class="text-xs font-black text-slate-800">Pasang Aplikasi SmartAbsensi</p>
+                        <p class="text-[10px] text-slate-500 font-medium">Akses langsung dari layar utama HP Anda</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-1.5 shrink-0">
+                    <button id="pwa-install-btn" type="button" class="px-3 py-1.5 bg-[#1E88E5] hover:bg-[#1976D2] text-white text-xs font-extrabold rounded-xl shadow-xs transition active:scale-95 cursor-pointer">
+                        Install
+                    </button>
+                    <button id="pwa-dismiss-btn" type="button" class="p-1 text-slate-400 hover:text-slate-600 cursor-pointer text-sm font-bold">&times;</button>
+                </div>
+            </div>
+        </div>
+
         {{ $slot }}
 
         <!-- Developer Credit Footer -->
@@ -44,6 +68,45 @@
         });
         document.addEventListener('livewire:navigated', () => {
             if (window.lucide) lucide.createIcons();
+        });
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then((reg) => console.log('PWA Service Worker registered:', reg.scope))
+                    .catch((err) => console.warn('PWA registration failed:', err));
+            });
+        }
+        let deferredPrompt = null;
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            const banner = document.getElementById('pwa-install-banner');
+            if (banner && !sessionStorage.getItem('pwa-prompt-dismissed')) {
+                banner.classList.remove('hidden');
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const installBtn = document.getElementById('pwa-install-btn');
+            const dismissBtn = document.getElementById('pwa-dismiss-btn');
+            const banner = document.getElementById('pwa-install-banner');
+
+            if (installBtn) {
+                installBtn.addEventListener('click', async () => {
+                    if (deferredPrompt) {
+                        deferredPrompt.prompt();
+                        const { outcome } = await deferredPrompt.userChoice;
+                        deferredPrompt = null;
+                        if (banner) banner.classList.add('hidden');
+                    }
+                });
+            }
+            if (dismissBtn) {
+                dismissBtn.addEventListener('click', () => {
+                    if (banner) banner.classList.add('hidden');
+                    sessionStorage.setItem('pwa-prompt-dismissed', '1');
+                });
+            }
         });
     </script>
 </body>
