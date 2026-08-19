@@ -157,6 +157,7 @@ class DatabaseSeeder extends Seeder
             ['name' => 'Sasya Fathin Musyaffa', 'class' => $classXAkhwat, 'gender' => 'P', 'nisn' => '0091010015', 'nis' => '26271015'],
             ['name' => 'Tsabita Hasna Adi Dzakya', 'class' => $classXAkhwat, 'gender' => 'P', 'nisn' => '0091010016', 'nis' => '26271016'],
             ['name' => 'Zidna Ilma Azizah', 'class' => $classXAkhwat, 'gender' => 'P', 'nisn' => '0091010017', 'nis' => '26271017'],
+            ['name' => 'Nida Qonita', 'class' => $classXAkhwat, 'gender' => 'P', 'nisn' => '0091010018', 'nis' => '26271035'],
 
             // === KELAS X IKHWAN (17 Siswa) ===
             ['name' => 'Abdullah Zhafar Siddiq', 'class' => $classXIkhwan, 'gender' => 'L', 'nisn' => '0091020001', 'nis' => '26271018'],
@@ -191,7 +192,7 @@ class DatabaseSeeder extends Seeder
             ['name' => 'Stevani Gabryela', 'class' => $classXIAkhwat, 'gender' => 'P', 'nisn' => '0081010011', 'nis' => '25261011'],
             ['name' => 'Khalishah Nara Syafrina', 'class' => $classXIAkhwat, 'gender' => 'P', 'nisn' => '0081010012', 'nis' => '25261012'],
 
-            // === KELAS XI IKHWAN (7 Siswa) ===
+            // === KELAS XI IKHWAN (9 Siswa) ===
             ['name' => 'Afif Hisyam Al Haidar', 'class' => $classXIIkhwan, 'gender' => 'L', 'nisn' => '0081020001', 'nis' => '25261013'],
             ['name' => 'Azzam Ghozy Robbam', 'class' => $classXIIkhwan, 'gender' => 'L', 'nisn' => '0081020002', 'nis' => '25261014'],
             ['name' => 'Dzulfiqar Muhammad', 'class' => $classXIIkhwan, 'gender' => 'L', 'nisn' => '0081020003', 'nis' => '25261015'],
@@ -199,6 +200,8 @@ class DatabaseSeeder extends Seeder
             ['name' => 'Muhammad Alfatih Murod R', 'class' => $classXIIkhwan, 'gender' => 'L', 'nisn' => '0081020005', 'nis' => '25261017'],
             ['name' => 'Muhammad Arkam Azzam', 'class' => $classXIIkhwan, 'gender' => 'L', 'nisn' => '0081020006', 'nis' => '25261018'],
             ['name' => 'Rafid Iltizam Aminuddin', 'class' => $classXIIkhwan, 'gender' => 'L', 'nisn' => '0081020007', 'nis' => '25261019'],
+            ['name' => 'Hanif Afandi', 'class' => $classXIIkhwan, 'gender' => 'L', 'nisn' => '0081020008', 'nis' => '25261020'],
+            ['name' => 'Ahnaf Al Fawwas', 'class' => $classXIIkhwan, 'gender' => 'L', 'nisn' => '0081020009', 'nis' => '25261021'],
         ];
 
         $createdStudents = [];
